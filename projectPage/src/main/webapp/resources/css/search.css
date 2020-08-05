@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+/*====레이아웃=====*/
+
+.page-main-style{
+	width:98%;
+	margin:0 auto;
+}
+.select {
+     width:300px;
+     padding:5px;
+     border:1px solid #999;
+     font-family:'Nanumgothic';
+     background:url('https://i.ibb.co/98Vbb8L/gnb-bg.gif') no-repeat 95% 50%;
+     border-radius:3px;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance : none;
+}

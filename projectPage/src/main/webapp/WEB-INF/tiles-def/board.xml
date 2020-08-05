@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+<definition name="center" extends="main">
+       <put-attribute name="title" value="고객센터"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/center.jsp"/>
+    </definition>
+    <definition name="generic" extends="main">
+       <put-attribute name="title" value="전시장 안내"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic.jsp"/>
+    </definition>
+    <definition name="carreview" extends="main">
+       <put-attribute name="title" value="차량 후기"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/carreview.jsp"/>
+    </definition>
+    <definition name="board" extends="main">
+       <put-attribute name="title" value="자유게시판"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/board.jsp"/>
+    </definition>
+    <definition name="generic_1" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic_1.jsp"/>
+    </definition>
+    <definition name="generic_2" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic_2.jsp"/>
+    </definition>
+    <definition name="generic_3" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic_3.jsp"/>
+    </definition>
+    <definition name="generic_4" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic_4.jsp"/>
+    </definition>
+    <definition name="generic_5" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic_5.jsp"/>
+    </definition>
+</tiles-definitions>
+
+
+
+
+
+
+
+

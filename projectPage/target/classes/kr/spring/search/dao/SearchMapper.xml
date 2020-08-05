@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.search.dao.SearchMapper">
+	<select id="selectCount" parameterType="map" resultType="integer">
+		SELECT
+		COUNT(*)
+		FROM carex
+	</select>
+
+	<select id="selectList" parameterType="map" resultType="search">
+		SELECT
+		*
+		FROM (SELECT
+		a.*,
+		rownum rnum
+		FROM (SELECT
+		*
+		FROM carex	
+		<where>
+			<if test="car_name != null and car_make != null">
+			    car_name = #{car_name}
+				AND car_make like #{car_make}
+			</if>
+		</where>
+		ORDER BY
+		car_num DESC)a)
+		<![CDATA[
+		WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+
+	</select>
+</mapper>
+
+
+
+
+
+
+

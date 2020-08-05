@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.btn-right{
+	margin:500px 0 0 400px;
+}
+.title{
+	font-size:35pt;
+	font-family:"맑은 고딕";
+	text-align:center;
+}
+.ti-left{
+	float:left;
+	align:center;
+	width:600px;
+	height:450px;
+	/* border:solid black 1px; */
+}
+.ti-right{
+	float:right;
+	align:center;
+	width:600px;
+	height:450px;
+	/* border:solid black 1px; */
+}
+.main{
+	width:1300px;
+	height:1300px;
+	
+}

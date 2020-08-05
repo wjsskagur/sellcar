@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="search" extends="main">
+       <put-attribute name="title" value="검색창"/> 
+       <put-attribute name="body" value="/WEB-INF/views/search/searchMain.jsp"/>
+    </definition>
+    <definition name="search_in" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/board/generic_1.jsp"/>
+    </definition>
+    <definition name="searchList" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/search/searchList.jsp"/>
+    </definition>
+    <definition name="searchgo" extends="main">
+       <put-attribute name="title" value="전시장"/> 
+       <put-attribute name="body" value="/WEB-INF/views/search/searchgo.jsp"/>
+    </definition>
+     
+</tiles-definitions>
+
+
+
+
+
+
+
+

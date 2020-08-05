@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="qalist" extends="main">
+		<put-attribute name="title" value="qna목록" />
+		<put-attribute name="body" value="/WEB-INF/views/qa/qalist.jsp" />
+	</definition>
+	<definition name="qawrite" extends="main">
+		<put-attribute name="title" value="qna등록" />
+		<put-attribute name="body" value="/WEB-INF/views/qa/qawrite.jsp" />
+	</definition>
+	<definition name="qaview" extends="main">
+		<put-attribute name="title" value="qna상세 " />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qaview.jsp" />
+	</definition>
+	<definition name="qamodify" extends="main">
+		<put-attribute name="title" value="qna수정" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qamodify.jsp" />
+	</definition>
+		<definition name="qadelete" extends="main">
+		<put-attribute name="title" value="qna삭제" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qadelete.jsp" />
+	</definition>
+		<definition name="qareply" extends="main">
+		<put-attribute name="title" value="qna리플" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qareply.jsp" />
+	</definition>
+</tiles-definitions>
+
+
+
+
+
+
+
+
