@@ -9,6 +9,7 @@
 	차량 후기 게시판
 	</td>
 </tr>
+<!-- 차량 후기 수정1-->
 <tr>
 	<td align="left" colspan="2" width="400">
 	Total ${totalArticle } articles, ${totalPage } pages / Now Page is ${currentPage }
