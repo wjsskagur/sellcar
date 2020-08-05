@@ -22,6 +22,7 @@ import kr.spring.qa.domain.QaVO;
 import kr.spring.qa.service.QaService;
 import kr.spring.util.PagingUtil;
 
+/* 질문과 답변 */
 @Controller
 public class QaController {
 	private Logger log = Logger.getLogger(this.getClass());
