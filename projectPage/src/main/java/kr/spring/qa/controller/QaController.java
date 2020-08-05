@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,6 @@ import kr.spring.qa.domain.QaVO;
 import kr.spring.qa.service.QaService;
 import kr.spring.util.PagingUtil;
 
-/* 질문과 답변 */
 @Controller
 public class QaController {
 	private Logger log = Logger.getLogger(this.getClass());
@@ -31,7 +31,6 @@ public class QaController {
 	
 	@Resource
 	private QaService qaService;
-	
 	
 	//자바빈(VO) 초기화
 	@ModelAttribute
@@ -68,7 +67,7 @@ public class QaController {
 		}
 				
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("qalist");
+		mav.setViewName("qaList");
 		mav.addObject("count",count);
 		mav.addObject("list",list);
 		mav.addObject("pagingHtml",page.getPagingHtml());
@@ -78,7 +77,7 @@ public class QaController {
 	//글쓰기
 	@RequestMapping(value="/qa/write.do",method=RequestMethod.GET)
 	public String qaform() {
-		return "qawrite";
+		return "qaWrite";
 	}
 	//글쓰기 처리
 	@RequestMapping(value="/qa/write.do",method=RequestMethod.POST)
@@ -89,7 +88,7 @@ public class QaController {
 		}
 		//유효성체크 결과 에러가 있으면 폼을 호출
 		if(result.hasErrors()) {
-			return "qawrite";
+			return "qaWrite";
 		}
 		//mem_num 반환
 		qaVO.setMem_num((Integer)session.getAttribute("user_num"));
@@ -116,7 +115,7 @@ public class QaController {
 
 
 		//뷰 이름		,속성명     , 속성값
-		return new ModelAndView("qaview","qa", qa);
+		return new ModelAndView("qaView","qa", qa);
 	}
 	//파일 다운로드
 	@RequestMapping("/qa/file.do")
@@ -145,8 +144,49 @@ public class QaController {
 			
 		return mav;
 	}
-	
-	/*@RequestMapping(value="/sell.do",method=RequestMethod.GET)
+	//글수정 폼
+	@RequestMapping(value="/qa/update.do",method=RequestMethod.GET)
+	public String qaform(@RequestParam("num") int num, Model model) {
+			
+		QaVO qaVO = qaService.selectBoard(num);
+		model.addAttribute("qaVO", qaVO);
+			
+			
+		return "qaModify";
+	}
+	//글수정 처리
+	@RequestMapping(value="/qa/update.do",method=RequestMethod.POST)
+	public String submitUpdate(@Valid QaVO qaVO, BindingResult result,HttpServletRequest request) {
+			
+		//로그표시
+		if(log.isDebugEnabled()) {
+			log.debug("<<QaVO>> : " + qaVO);
+		}
+		//유효성체크결과 에러가 있으면 폼 호출
+		if(result.hasErrors()) {
+			return "qaModify";
+		}
+		qaVO.setIp(request.getRemoteAddr());
+		
+		qaService.update(qaVO);
+		
+		return "redirect:/qa/list.do";
+	}
+	//글 삭제 
+	@RequestMapping("/qa/delete.do")
+	public String submit(@RequestParam("num") int num) {
+			
+		//로그표시
+		if(log.isDebugEnabled()) {
+			log.debug("<<num>> : " + num);
+		}
+			
+		//글삭제
+		qaService.delete(num);
+			
+		return "redirect:/qa/list.do";
+	}
+	@RequestMapping(value="/sell.do",method=RequestMethod.GET)
 	public String form() {
 		return "sell";
 	}
@@ -164,5 +204,5 @@ public class QaController {
 		//productService.insertProduct(productVO);
 
 		return "redirect:/list.do";
-	}*/
+	}
 }
