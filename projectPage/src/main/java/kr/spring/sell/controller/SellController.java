@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
@@ -31,6 +32,11 @@ public class SellController {
 	@Resource
 	private SellService sellService;
 
+	
+	@ModelAttribute
+	public SellcarVO initCommand() {
+		return new SellcarVO();
+	}
 	
 	//내차팔기
 	@RequestMapping("/sell/sell.do")
