@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-/* 메인  컨트롤러*/
+/* 메인  컨트롤러 */
 @Controller
 public class MainController {
 	@RequestMapping("/main/main.do")
