@@ -5,6 +5,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/sell.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.min.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	/* $(document).on('click','#popup',function(){
@@ -14,7 +15,7 @@
 	/* function newPop(){
 	window.open('popup.do','제조사 선택','width=300,height=300,scrollbars=yes,left=200,top=50');
 	} */
-	$(function(){
+	/* $(function(){
 		$('#dialog').dialog({
 			autoOpen:false,
 			show:{
@@ -31,10 +32,10 @@
 		//버튼이벤트 연결
 		$('#opener').click(function(){
 			$('#dialog').dialog('open');
-		});
-		
-		
 	});
+		}); */
+		
+		
 </script>
 	<div class="m">
 		<div class="ti">
@@ -54,9 +55,9 @@
 						<div class="in-left">
 							<ul>
 								<li>
-									<label for="car_num">차량번호</label> 
-									<form:input path="car_num" /> 
-									<form:errors path="car_num" cssClass="error-color" />
+									<label for="car_number">차량번호${mem_id}</label>
+									<form:input path="car_number" /> 
+									<form:errors path="car_number" cssClass="error-color" />
 								</li>
 								<li>
 									<label for="car_name">차량이름</label> 
@@ -121,100 +122,13 @@
 						</div>
 					</div>
 					<div class="align-center">
-						<input type="submit" value="등록"> <input type="button"
-							value="홈으로" onclick="location.href='main.do'">
+						<input type="submit" value="등록"> 
+						<input type="button" value="홈으로" onclick="location.href='main.do'">
 					</div>
 				</form:form>
 			</div>
-			<button id="opener">차량 사진 등록</button>
-	<div id="dialog" title="차량 사진 등록">
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_mainimg">차량 대표 사진(필수)</label>
-	<input type="file" id="upload1" name="upload1">
-	<form:errors path="car_maingimg"/>
-	</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img1">차량 외부 사진(필수)</label>
-	<input type="file" id="upload2" name="upload2">
-	<form:errors path="car_img1"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img2">차량 외부 사진(필수)</label>
-	<input type="file" id="upload3" name="upload3">
-	<form:errors path="car_img2"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img3">차량 외부 사진</label>
-	<input type="file" id="upload4" name="upload4">
-	<form:errors path="car_img3"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img4">차량 외부 사진</label>
-	<input type="file" id="upload5" name="upload5">
-	<form:errors path="car_img4"/>
-		</form:form>
-		<form:form action="submitReport.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img5">차량 내부 사진(필수)</label>
-	<input type="file" id="upload6" name="upload6">
-	<form:errors path="car_img5"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img6">차량 내부 사진(필수)</label>
-	<input type="file" id="upload7" name="upload7">
-	<form:errors path="car_img6"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img7">차량 내부 사진(필수)</label>
-	<input type="file" id="upload8" name="upload8">
-	<form:errors path="car_img7"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img8">차량 내부 사진</label>
-	<input type="file" id="upload9" name="upload9">
-	<form:errors path="car_img8"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img9">차량 내부 사진</label>
-	<input type="file" id="upload10" name="upload10">
-	<form:errors path="car_img9"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_img10">차량 내부 사진</label>
-	<input type="file" id="upload11" name="upload11">
-	<form:errors path="car_img10"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_option">차량 옵션 사진</label>
-	<input type="file" id="upload12" name="upload12">
-	<form:errors path="car_option"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_test">차량 점검표(필수)</label>
-	<input type="file" id="upload13" name="upload13">
-	<form:errors path="car_test"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_content">차량 설명(필수)</label>
-	<input type="file" id="upload14" name="upload14">
-	<form:errors path="car_content"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="map_img">희망 전시장(필수)</label>
-	<input type="file" id="upload15" name="upload15">
-	<form:errors path="map_img"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_log">차량 요약(필수)</label>
-	<input type="file" id="upload16" name="upload16">
-	<form:errors path="car_log"/>
-		</form:form>
-		<form:form action="sell.do" enctype="multipart/form-data" commandName="sellcarVO">
-		<label for="car_detail">차량 상세설명(필수)</label>
-	<input type="file" id="upload17" name="upload17">
-	<form:errors path="car_detail"/>
-		</form:form>
-	<input type="submit" value="등록">
-	</div>
+			
+	
 		</div>
 	</div>
 	

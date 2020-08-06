@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.spring.sell.domain.SellcarVO;
 import kr.spring.sell.service.SellService;
@@ -39,12 +40,12 @@ public class SellController {
 	}
 	
 	//내차팔기
-	@RequestMapping("/sell/sell.do")
+	@RequestMapping(value="/sell/sell.do",method=RequestMethod.GET)
 	public String Sellmy() {
 		return "sell";
 	}
 	//내차팔기처리
-	@RequestMapping(value="/sell/sellgo.do")
+	@RequestMapping(value="/sell/sell.do",method=RequestMethod.POST)
 	public String sellmyCar(@Valid SellcarVO sellcar,BindingResult result,HttpServletRequest request,HttpSession session) {
 		if(log.isDebugEnabled()) {
 			log.debug("<<sellcarVO>> : "+sellcar);
@@ -52,14 +53,14 @@ public class SellController {
 		if(result.hasErrors()) {
 			return "sell";
 		}
-		//mem_num
-		sellcar.setMem_id((String)session.getAttribute("mem_id"));
+		//mem_id
+		sellcar.setMem_id((String)session.getAttribute("user_id"));
 		//ip반환
 		sellcar.setIp(request.getRemoteAddr());
 		//글등록
 		sellService.insert(sellcar);
 
-		return "redirect:/main/main.do";
+		return "redirect:/sell/sellphoto.do";
 	}	
 
 	/*@PostMapping
