@@ -77,7 +77,7 @@ public class QaController {
 	}
 	//글쓰기
 	@RequestMapping(value="/qa/write.do",method=RequestMethod.GET)
-	public String qaform() {
+	public String form() {
 		return "qaWrite";
 	}
 	//글쓰기 처리
@@ -147,7 +147,7 @@ public class QaController {
 	}
 	//글수정 폼
 	@RequestMapping(value="/qa/update.do",method=RequestMethod.GET)
-	public String qaform(@RequestParam("num") int num, Model model) {
+	public String form(@RequestParam("num") int num, Model model) {
 			
 		QaVO qaVO = qaService.selectBoard(num);
 		model.addAttribute("qaVO", qaVO);
@@ -187,23 +187,4 @@ public class QaController {
 			
 		return "redirect:/qa/list.do";
 	}
-	@RequestMapping(value="/sell.do",method=RequestMethod.GET)
-	public String form() {
-		return "sell";
-	}
-
-	@RequestMapping(value="/sell.do",method=RequestMethod.POST)
-	public String submit(QaVO qaVO, BindingResult result) {
-	
-	
-		
-		//유효성 체크 결과 에러가 있으면 폼을 호출
-		if(result.hasErrors()) {
-			return qaform();
-		}
-		//회원 가입
-		//productService.insertProduct(productVO);
-
-		return "redirect:/list.do";
-	}
-}
+}	
