@@ -14,6 +14,10 @@
        <put-attribute name="title" value="차량 사진등록"/> 
        <put-attribute name="body" value="/WEB-INF/views/sell/sellphoto.jsp"/>
     </definition>
+    <definition name="sellview" extends="main">
+       <put-attribute name="title" value="내차팔기목록"/> 
+       <put-attribute name="body" value="/WEB-INF/views/sell/sellview.jsp"/>
+    </definition>
 </tiles-definitions>
 
 

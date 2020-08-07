@@ -44,13 +44,14 @@
 					onclick="location.href='home.do'">
 			</div>
 			<div class="ti-right">
-				<input type="button" class="sell-result" value="내차 팔기 알아보기"
-					onclick="location.href='home.do'">
+				<input type="button" class="sell-result" value="내차 사진 등록"
+					onclick="location.href='sellview.do'">
 			</div>
 		</div>
 		<div class="in">
 			<div class="in-div">
 				<form:form action="sell.do" commandName="sellcarVO">
+				<form:hidden path="car_num"/>
 					<div class="in-style">
 						<div class="in-left">
 							<ul>

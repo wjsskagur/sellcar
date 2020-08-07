@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.sell.dao.SellPhotoMapper">  
+	<select id="selectRowCount" parameterType="map" resultType="integer">
+		SELECT COUNT(*) FROM car b JOIN member m ON b.mem_id=m.mem_id
+		<where>
+			<if test="keyword != '' and keyfield == 'title'">
+				b.title LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'id'">
+				m.id LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'content'">
+				b.content LIKE '%' || #{keyword} || '%'
+			</if>
+		</where>
+	</select>
+	<select id="selectList" parameterType="map" resultType="sellcarVO">
+		SELECT * FROM (SELECT a.*, rownum rnum FROM 
+		(SELECT * FROM car b JOIN member m ON b.mem_id=m.mem_id
+		<where>
+			<if test="keyword != '' and keyfield == 'title'">
+				b.title LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'id'">
+				m.id LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'content'">
+				b.content LIKE '%' || #{keyword} || '%'
+			</if>
+		</where>
+		 ORDER BY b.mem_id DESC)a)
+		<![CDATA[
+		WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
