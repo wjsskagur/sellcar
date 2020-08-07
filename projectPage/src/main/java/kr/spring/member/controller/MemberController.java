@@ -29,7 +29,7 @@ public class MemberController {
 		
 		return new MemberVO();
 	}
-	
+	//1
 	// 회원가입 전 이용약관 동의 페이지 호출
 	@RequestMapping(value="/member/registerAgree.do", method=RequestMethod.GET)
 	public String formRegisterAgree() {
