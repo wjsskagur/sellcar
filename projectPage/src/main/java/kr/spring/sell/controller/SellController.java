@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.spring.sell.domain.SellcarVO;
+import kr.spring.sell.service.SellPhoto;
 import kr.spring.sell.service.SellService;
 //import kr.spring.sell.validator.FileValidator;
 
@@ -32,7 +33,8 @@ public class SellController {
 
 	@Resource
 	private SellService sellService;
-
+	@Resource
+	private SellPhoto sellPhoto;
 	
 	@ModelAttribute
 	public SellcarVO initCommand() {
@@ -61,6 +63,29 @@ public class SellController {
 		sellService.insert(sellcar);
 
 		return "redirect:/sell/sellphoto.do";
+	}	
+	//내차팔기
+	@RequestMapping(value="/sell/sellphoto.do",method=RequestMethod.GET)
+	public String cphoto() {
+		return "sellphoto";
+	}
+	//내차팔기처리
+	@RequestMapping(value="/sell/sellPhoto.do",method=RequestMethod.POST)
+	public String CarPhoto(@Valid SellcarVO sellcar,BindingResult result,HttpServletRequest request,HttpSession session) {
+		if(log.isDebugEnabled()) {
+			log.debug("<<sellcarVO>> : "+sellcar);
+		}
+		if(result.hasErrors()) {
+			return "sellPhoto";
+		}
+		//car_num
+		sellcar.setCar_num((Integer)session.getAttribute("car_num"));
+		//ip반환
+		sellcar.setIp(request.getRemoteAddr());
+		//글등록
+		sellPhoto.insert(sellcar);
+		
+		return "redirect:/main/main.do";
 	}	
 
 	/*@PostMapping

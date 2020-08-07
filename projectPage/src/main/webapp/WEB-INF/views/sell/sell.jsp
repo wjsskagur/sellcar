@@ -55,7 +55,7 @@
 						<div class="in-left">
 							<ul>
 								<li>
-									<label for="car_number">차량번호${mem_id}</label>
+									<label for="car_number">차량번호</label>
 									<form:input path="car_number" /> 
 									<form:errors path="car_number" cssClass="error-color" />
 								</li>
