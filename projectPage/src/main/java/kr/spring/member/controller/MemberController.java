@@ -29,7 +29,7 @@ public class MemberController {
 		
 		return new MemberVO();
 	}
-	
+	//1
 	// 회원가입 전 이용약관 동의 페이지 호출
 	@RequestMapping(value="/member/registerAgree.do", method=RequestMethod.GET)
 	public String formRegisterAgree() {
@@ -77,7 +77,10 @@ public class MemberController {
 		if(log.isDebugEnabled()) {
 			log.debug("<<MemberVO>> : " + memberVO);
 		}
-		
+		//아이디와 비밀번호 체크결과 에러가 있으면 폼을 호출
+				if(result.hasFieldErrors("id") || result.hasFieldErrors("passwd")) {
+					return formLogin();
+				}
 		try {
 			MemberVO member = memberService.selectCheckMember(memberVO.getMem_id());
 			boolean check = false;
@@ -91,15 +94,15 @@ public class MemberController {
 			if(check) {
 				member.count = 1;
 				
-				session.setAttribute("user", member);
 				session.setAttribute("user_id", member.getMem_id());
+				session.setAttribute("user_num", member.getMem_num());
 				session.setAttribute("user_auth", member.getMem_auth());
-				
 				if(log.isDebugEnabled()) {
 					log.debug("==로그인 성공==");
 					log.debug("<<user_id>> : " + member.getMem_id());
 					log.debug("<<user_auth>> : " + member.getMem_auth());
 				}
+				return "redirect:/main/main.do";
 			} else {
 				member.count = 0;
 				
@@ -107,8 +110,7 @@ public class MemberController {
 				// 로그인 실패
 				throw new AuthCheckException();
 			}
-			
-			return "redirect:/member/login.do";
+
 		} catch(AuthCheckException e) {
 			// 로그인 실패시 에러 코드를 지정하고 폼을 호출함
 			result.reject("invalidIdOrPassword");

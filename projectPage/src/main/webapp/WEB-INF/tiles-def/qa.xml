@@ -6,29 +6,29 @@
 
 <tiles-definitions>
 
-	<definition name="qalist" extends="main">
+	<definition name="qaList" extends="main">
 		<put-attribute name="title" value="qna목록" />
-		<put-attribute name="body" value="/WEB-INF/views/qa/qalist.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/qa/qaList.jsp" />
 	</definition>
-	<definition name="qawrite" extends="main">
+	<definition name="qaWrite" extends="main">
 		<put-attribute name="title" value="qna등록" />
-		<put-attribute name="body" value="/WEB-INF/views/qa/qawrite.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/qa/qaWrite.jsp" />
 	</definition>
-	<definition name="qaview" extends="main">
+	<definition name="qaView" extends="main">
 		<put-attribute name="title" value="qna상세 " />
-		<put-attribute name="body"	value="/WEB-INF/views/qa/qaview.jsp" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qaView.jsp" />
 	</definition>
-	<definition name="qamodify" extends="main">
+	<definition name="qaModify" extends="main">
 		<put-attribute name="title" value="qna수정" />
-		<put-attribute name="body"	value="/WEB-INF/views/qa/qamodify.jsp" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qaModify.jsp" />
 	</definition>
-		<definition name="qadelete" extends="main">
+		<definition name="qaDelete" extends="main">
 		<put-attribute name="title" value="qna삭제" />
-		<put-attribute name="body"	value="/WEB-INF/views/qa/qadelete.jsp" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qaDelete.jsp" />
 	</definition>
-		<definition name="qareply" extends="main">
+		<definition name="qaReply" extends="main">
 		<put-attribute name="title" value="qna리플" />
-		<put-attribute name="body"	value="/WEB-INF/views/qa/qareply.jsp" />
+		<put-attribute name="body"	value="/WEB-INF/views/qa/qaReply.jsp" />
 	</definition>
 </tiles-definitions>
 
