@@ -4,9 +4,12 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/sell.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/jquery-ui.min.css">
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/jquery-ui.min.css">
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	/* $(document).on('click','#popup',function(){
 	  window.open('popup.do','제조사 선택','width=400, hegiht=400');
@@ -37,100 +40,131 @@
 		
 		
 </script>
-	<div class="m">
-		<div class="ti">
-			<div class="ti-left">
-				<input type="button" class="sell-search" value="내차 팔기 알아보기"
-					onclick="location.href='home.do'">
-			</div>
-			<div class="ti-right">
-				<input type="button" class="sell-result" value="내차 사진 등록"
-					onclick="location.href='sellview.do'">
-			</div>
+<div class="m">
+	<div class="ti">
+		<div class="ti-left">
+			<input type="button" class="sell-search" value="내차 팔기 알아보기"
+				onclick="location.href='home.do'">
 		</div>
-		<div class="in">
-			<div class="in-div">
-				<form:form action="sell.do" commandName="sellcarVO">
-				<form:hidden path="car_num"/>
-					<div class="in-style">
-						<div class="in-left">
-							<ul>
-								<li>
-									<label for="car_number">차량번호</label>
-									<form:input path="car_number" /> 
-									<form:errors path="car_number" cssClass="error-color" />
-								</li>
-								<li>
-									<label for="car_name">차량이름</label> 
-									<form:input path="car_name" /> 
-									<form:errors path="car_name" cssClass="error-color" />
-								</li>
-								<li>
-									<label for="car_cate1">제조사</label> <!-- <input class="popup" id="popup" type=button value="제조사 선택"> --><!-- <a href="#" onclick="newPop()">제조사 선택</a> -->
-									<form:input path="car_cate1"/>
-									<form:errors path="car_cate1" cssClass="error-color"/>	
-								</li>
-								<li>
-									<label for="car_cate2">차량 모델</label> 
-									<form:input path="car_cate2" /> 
-									<form:errors path="car_cate2" cssClass="error-color" />
-								</li>
-								<li><label for="car_cate3">연식</label> <form:input
-										path="car_cate3" /> <form:errors path="car_cate3"
-										cssClass="error-color" /></li>
-								<li><label for="car_cate4">변속기</label><br>
-									<input type="radio" name="car_cate4" value="0">수동
-									<input type="radio" name="car_cate4" value="1">자동
-								<form:errors path="car_cate4"
-										cssClass="error-color" /></li>
-								<li><label for="car_cate5">연료</label> <form:input
-										path="car_cate5" /> <form:errors path="car_cate5"
-										cssClass="error-color" /></li>
-								<li><label for="car_des">주행 거리</label> <form:input
-										path="car_des" /> <form:errors path="car_des"
-										cssClass="error-color" /></li>
-							</ul>
-						</div>
-						<div class="in-right">
-							<ul>
-								<li><label for="car_break">사고 유무</label> 
-									<input type="radio" name="car_break" value="0">O
-									<input type="radio" name="car_break" value="1">X 
-								<form:errors path="car_break"
-										cssClass="error-color" /></li>
-								<li><label for="car_smoke">흡연 여부</label> 
-									<input type="radio" name="car_smoke" value="0">O
-									<input type="radio" name="car_smoke" value="1">X 
-								<form:errors path="car_smoke"
-										cssClass="error-color" /></li>
-								<li><label for="car_outcolor">외부 색상</label> <form:input
-										path="car_outcolor" /> <form:errors path="car_outcolor"
-										cssClass="error-color" /></li>
-								<li><label for="car_incolor">내부 색상</label> <form:input
-										path="car_incolor" /> <form:errors path="car_incolor"
-										cssClass="error-color" /></li>
-								<li><label for="car_work">차량 용도</label> <form:input
-										path="car_work" /> <form:errors path="car_work"
-										cssClass="error-color" /></li>
-								<li><label for="car_debt">압류 저당</label>
-									<input type="radio" name="car_debt" value="0">O
-									<input type="radio" name="car_debt" value="1">X
-										<form:errors path="car_debt" cssClass="error-color" /></li>
-								<li><label for="car_price">차량 가격</label> <form:input
-										path="car_price" /> <form:errors path="car_price"
-										cssClass="error-color" /></li>
-							</ul>
-						</div>
-					</div>
-					<div class="align-center">
-						<input type="submit" value="등록"> 
-						<input type="button" value="홈으로" onclick="location.href='main.do'">
-					</div>
-				</form:form>
-			</div>
-			
-	
+		<div class="ti-right">
+		<c:if test="${!empty user_id}">
+			<input type="button" class="sell-result" value="내차 사진 등록"
+				onclick="location.href='sellview.do'">
+		</c:if>
+		<c:if test="${empty user_id}">
+			<input type="button" class="sell-result" value="내차 사진 등록"
+				onclick="location.href='${pageContext.request.contextPath}/member/login.do'">
+		</c:if>
 		</div>
 	</div>
-	
-										
+	<div class="in">
+		<div class="in-div">
+			<form:form action="sell.do" commandName="sellcarVO">
+				<form:hidden path="car_num" />
+				<div class="in-style">
+					<div class="in-left">
+						<ul>
+							<li><label for="car_number">차량번호</label> <form:input
+									path="car_number" /> <form:errors path="car_number"
+									cssClass="error-color" /></li>
+							<li><label for="car_name">차량이름</label> <form:input
+									path="car_name" /> <form:errors path="car_name"
+									cssClass="error-color" /></li>
+							<li><label for="car_cate1">제조사</label> <!-- <input class="popup" id="popup" type=button value="제조사 선택"> -->
+								<!-- <a href="#" onclick="newPop()">제조사 선택</a> --> <form:input
+									path="car_cate1" /> <form:errors path="car_cate1"
+									cssClass="error-color" /></li>
+							<li><label for="car_cate2">차량 모델</label> <form:input
+									path="car_cate2" /> <form:errors path="car_cate2"
+									cssClass="error-color" /></li>
+							<li><label for="car_cate3">연식</label><br> <select
+								name="car_cate3">
+									<option value="2020">2020년</option>
+									<option value="2019">2019년</option>
+									<option value="2018">2018년</option>
+									<option value="2017">2017년</option>
+									<option value="2016">2016년</option>
+									<option value="2015">2015년</option>
+									<option value="2014">2014년</option>
+									<option value="2013">2013년</option>
+									<option value="2012">2012년</option>
+									<option value="2011">2011년</option>
+									<option value="2010">2010년</option>
+									<option value="2009">2009년</option>
+									<option value="2008">2008년</option>
+									<option value="2007">2007년</option>
+									<option value="2006">2006년</option>
+									<option value="2005">2005년</option>
+									<option value="2004">2004년</option>
+									<option value="2003">2003년</option>
+									<option value="2002">2002년</option>
+									<option value="2001">2001년</option>
+									<option value="2000">2000년</option>
+							</select> <form:errors path="car_cate3" cssClass="error-color" /></li>
+							<li><label for="car_cate4">변속기</label><br> <input
+								type="radio" name="car_cate4" value="0">수동 <input
+								type="radio" name="car_cate4" value="1">자동 <form:errors
+									path="car_cate4" cssClass="error-color" /></li>
+							<li><label for="car_cate5">연료</label><br>
+								<select name="car_cate5">
+									<option value="가솔린">가솔린</option>
+									<option value="디젤">디젤</option>
+									<option value="하이브리드">하이브리드</option>
+									<option value="전기">전기</option>
+									<option value="수소">수소</option>
+								</select>
+									<form:errors path="car_cate5" cssClass="error-color" /></li>
+							<li><label for="car_des">주행 거리</label> <form:input
+									path="car_des" /> <form:errors path="car_des"
+									cssClass="error-color" /></li>
+						</ul>
+					</div>
+					<div class="in-right">
+						<ul>
+							<li><label for="car_break">사고 유무</label> <input type="radio"
+								name="car_break" value="0">O <input type="radio"
+								name="car_break" value="1">X <form:errors
+									path="car_break" cssClass="error-color" /></li>
+							<li><label for="car_smoke">흡연 여부</label> <input type="radio"
+								name="car_smoke" value="0">O <input type="radio"
+								name="car_smoke" value="1">X <form:errors
+									path="car_smoke" cssClass="error-color" /></li>
+							<li><label for="car_outcolor">외부 색상</label> <form:input
+									path="car_outcolor" /> <form:errors path="car_outcolor"
+									cssClass="error-color" /></li>
+							<li><label for="car_incolor">내부 색상</label> <form:input
+									path="car_incolor" /> <form:errors path="car_incolor"
+									cssClass="error-color" /></li>
+							<li><label for="car_work">차량 용도</label><br> 
+								<select name="car_work">
+									<option value="출퇴근">출퇴근</option>
+									<option value="업무용">업무용</option>
+									<option value="화물운송">화물운송</option>
+									<option value="기타">기타</option>
+								</select>
+							<form:errors path="car_work"
+									cssClass="error-color" /></li>
+							<li><label for="car_debt">압류 저당</label> <input type="radio"
+								name="car_debt" value="0">O <input type="radio"
+								name="car_debt" value="1">X <form:errors path="car_debt"
+									cssClass="error-color" /></li>
+							<li><label for="car_price">차량 가격</label> <form:input
+									path="car_price" /> <form:errors path="car_price"
+									cssClass="error-color" /></li>
+						</ul>
+					</div>
+				</div>
+				<div class="align-center">
+				<c:if test="${!empty user_id}">
+					<input type="submit" value="등록"> 
+					</c:if>
+					<input type="button"
+						value="홈으로" onclick="location.href='main.do'">
+				</div>
+			</form:form>
+		</div>
+
+
+	</div>
+</div>
+
