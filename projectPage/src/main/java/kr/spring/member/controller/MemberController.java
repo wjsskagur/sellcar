@@ -1,6 +1,7 @@
 package kr.spring.member.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -36,7 +37,11 @@ public class MemberController {
 		
 		return "memberRegister";
 	}
-	
+	@RequestMapping("/member/myPage.do")
+	public String myPage(MemberVO memberVO, BindingResult result, HttpSession session,HttpServletRequest request) {
+
+	return "myPage";
+}
 	// 약관동의 체크 여부 확인 후 회원가입 폼 호출
 	@RequestMapping(value="/member/register.do", method=RequestMethod.GET)
 	public String formRegister() {
@@ -94,9 +99,14 @@ public class MemberController {
 			if(check) {
 				member.count = 1;
 				
+				session.setAttribute("user", member);
 				session.setAttribute("user_id", member.getMem_id());
-				session.setAttribute("user_num", member.getMem_num());
 				session.setAttribute("user_auth", member.getMem_auth());
+				session.setAttribute("user_name", member.getMem_name());
+				session.setAttribute("user_cell", member.getMem_cell());
+				session.setAttribute("user_email", member.getMem_email());
+				session.setAttribute("user_addr", member.getMem_addr());
+				session.setAttribute("user_addr2", member.getMem_addr2());
 				if(log.isDebugEnabled()) {
 					log.debug("==로그인 성공==");
 					log.debug("<<user_id>> : " + member.getMem_id());

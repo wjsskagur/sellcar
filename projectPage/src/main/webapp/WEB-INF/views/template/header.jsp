@@ -39,7 +39,7 @@
 			검색</a> <a href="${pageContext.request.contextPath}/sell/sell.do">내차
 			팔기</a> 
 			<a href="${pageContext.request.contextPath}/board/carreview.do">차량 후기</a>
-			<a href="#">마이페이지</a> <a
+			<a href="${pageContext.request.contextPath}/member/myPage.do">마이페이지</a> <a
 			href="${pageContext.request.contextPath}/board/center.do">고객센터</a>
 	</nav>
 

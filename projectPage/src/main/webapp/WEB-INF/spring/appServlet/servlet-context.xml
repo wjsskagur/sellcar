@@ -56,6 +56,18 @@
 		<beans:property name="order" value="1"/>  
 	</beans:bean>
 	
+	<!-- 인터셉터 진입 -->
+	<beans:bean id="LoginCheckInterceptor" class="kr.spring.interceptor.LoginCheckInterceptor">
+</beans:bean>
+	<interceptors>
+    <interceptor>
+        <mapping path="/member/myPage.do"/>
+        <exclude-mapping path="/member/memberLogin.do"/> <!--인터셉터 진입 안하게 할 주소-->
+        <beans:bean class="kr.spring.interceptor.LoginCheckInterceptor">
+        </beans:bean>
+    </interceptor>
+</interceptors>
+	
 	<!-- 파일다운로드 및 이미지 표시 -->
 	<beans:bean
 	  class="org.springframework.web.servlet.view.BeanNameViewResolver"
