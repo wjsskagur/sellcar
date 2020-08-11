@@ -14,6 +14,14 @@ textarea.commentForm{
 
 }
 </style>
+<script>
+	function delete_btn(){
+		if(confirm('삭제 하시겠습니까?')){
+			alert('삭제 되었습니다.');
+			location.href='delete.do?num=${qa.num}';
+		}
+	}
+</script>
 <div class="page-main-style">
 	<table class="boardView">
 	<tr>
@@ -50,6 +58,7 @@ textarea.commentForm{
 		<td colspan="5" align="left"><p>${qa.content}</p></td>
 	</tr>
 	</table>
+	<c:if test="${user_auth == 3}">
 	<table class="commentView">
 		<tr>
 			<th colspan="2">댓글</th>
@@ -79,11 +88,12 @@ textarea.commentForm{
 			</td>
 		</tr>
 	</table>
+	</c:if>
 	<div class="align-right">
 		<!-- 글 수정 및 삭제를 하려면 로그인한 후 로그인 아이디와 작성자 아이디가 일치 -->
 		<c:if test="${!empty user_id && user_id == qa.mem_id}">
 		<input type="button" value="수정" onclick="location.href='update.do?num=${qa.num}'">
-		<input type="button" value="삭제" onclick="location.href='delete.do?num=${qa.num}'">
+		<input type="button" value="삭제" onclick="delete_btn()">
 		</c:if>
 		<input type="button" value="목록으로" style="margin-top: 10px" onclick="location.href='list.do'">
 	</div>

@@ -101,6 +101,7 @@ public class MemberController {
 				
 				session.setAttribute("user", member);
 				session.setAttribute("user_id", member.getMem_id());
+				session.setAttribute("user_num", member.getMem_num());
 				session.setAttribute("user_auth", member.getMem_auth());
 				session.setAttribute("user_name", member.getMem_name());
 				session.setAttribute("user_cell", member.getMem_cell());
