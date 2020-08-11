@@ -17,7 +17,7 @@ public class FileValidator implements Validator{
 	public void validate(Object target, Errors errors) {
 		SellcarVO vo = (SellcarVO)target;
 		if(vo.getUpload1() == null || vo.getUpload1().isEmpty()) {
-			errors.rejectValue("File", "required");
+			errors.rejectValue("upload1", "required");
 		}
 		
 	}

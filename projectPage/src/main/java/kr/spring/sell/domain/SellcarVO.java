@@ -114,6 +114,8 @@ public class SellcarVO {
 	private String review_title;
 	private String review_con;
 	private String review_com;
+	private String car_number;
+	private int carp_num;
 	
 	public SellcarVO() {};
 	
@@ -1016,7 +1018,22 @@ public class SellcarVO {
 	public void setReview_com(String review_com) {
 		this.review_com = review_com;
 	}
-
+	
+	public String getCar_number() {
+		return car_number;
+	}
+	public void setCar_number(String car_number) {
+		this.car_number = car_number;
+	}
+	
+	public void setCarp_num(int carp_num) {
+		this.carp_num = carp_num;
+	}
+	public int getCarp_num() {
+		return carp_num;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "SellcarVO [upload1=" + upload1 + ", upload2=" + upload2 + ", upload3=" + upload3 + ", upload4="
@@ -1044,7 +1061,7 @@ public class SellcarVO {
 				+ ord_map + ", ord_etc=" + ord_etc + ", ord_pdata=" + ord_pdata + ", qna_num=" + qna_num + ", qna_com="
 				+ qna_com + ", qna_title=" + qna_title + ", qna_auth=" + qna_auth + ", answer=" + answer + ", qna_hit="
 				+ qna_hit + ", review_num=" + review_num + ", review_title=" + review_title + ", review_con="
-				+ review_con + ", review_com=" + review_com + "]";
+				+ review_con + ", review_com=" + review_com + ", car_number=" + car_number +", carp_num=" + carp_num +"]";
 	}
 
 	
