@@ -21,7 +21,7 @@
 	<div class="inner">
 		<header>
 			<h1>내차 팔기</h1>
-			<!-- <p>Aliquam libero augue varius non odio nec faucibus congue<br />felis quisque a diam rutrum tempus massa accumsan faucibus purus.</p> -->
+			
 		</header>
 		<c:if test="${empty user_id}">
 		<a href="${pageContext.request.contextPath}/member/login.do" class="button big scrolly">로그인 후 이용가능합니다</a>
