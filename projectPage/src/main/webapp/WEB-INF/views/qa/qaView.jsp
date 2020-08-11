@@ -2,6 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" href="../css/board.css">
+<style>
+textarea.commentForm{
+	rows: 10;
+	width: 100%;
+	border: 1;
+	height: 100px;
+	overflow: visible;
+	text-overflow:ellipsis;
+
+}
+</style>
 <div class="page-main-style">
 	<table class="boardView">
 	<tr>
@@ -60,12 +72,10 @@
 		<tr>
 			<td class="writer"><strong>댓글 쓰기</strong></td>
 			<td class="content">
-				<form action="commentWrite.do" method="post">
 					<input type="hidden" id="writer" name="writer" value="${mem_id}" />
-					<input type="hidden" id="linkedArticleNum" name="linkedArticleNum" value="${board.idx}" />
-					<textarea id="content" name="content" class="commentForm"></textarea>
-					<input type="submit" value="확인" class="commentBt" />
-				</form>
+					<input type="hidden" id="linkedArticleNum" name="linkedArticleNum" />
+					<textarea name="content" class="textarea" style="width: 1235px"></textarea>
+					<input type="submit" value="확인" class="commentBt" onclick="location.href='commentWrite.do'" />
 			</td>
 		</tr>
 	</table>
@@ -75,7 +85,7 @@
 		<input type="button" value="수정" onclick="location.href='update.do?num=${qa.num}'">
 		<input type="button" value="삭제" onclick="location.href='delete.do?num=${qa.num}'">
 		</c:if>
-		<input type="button" value="목록으로" onclick="location.href='list.do'">
+		<input type="button" value="목록으로" style="margin-top: 10px" onclick="location.href='list.do'">
 	</div>
 </div>
 

@@ -37,7 +37,7 @@
 			<li><select name="keyfield">
 					<option value="title">제목</option>
 					<option value="content">내용</option>
-					<option value="id">id</option>
+					<option value="mem_id">id</option>
 			</select></li>
 			<li><input type="search" size="16" name="keyword" id="keyword">
 			</li>
