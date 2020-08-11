@@ -26,3 +26,90 @@
 	height:1300px;
 	
 }
+
+@charset "UTF-8";
+.btn-right{
+	margin:500px 0 0 400px;
+}
+.title{
+	font-size:35pt;
+	font-family:"맑은 고딕";
+	text-align:center;
+}
+.ti-left{
+	float:left;
+	align:center;
+	width:600px;
+	height:450px;
+	/* border:solid black 1px; */
+}
+.ti-right{
+	float:right;
+	align:center;
+	width:600px;
+	height:450px;
+	/* border:solid black 1px; */
+}
+.main{
+	width:1300px;
+	height:1300px;
+	
+}
+
+table.boardView {
+	width: 100%;
+	border-style: inherit;
+	vertical-align: top;	
+}
+.boardView th{
+	height: 25px;
+	background-color: #b0e0e6;
+	padding: 5px 5px 5px 5px;
+}
+.boardView td{
+	height: 20px;
+	background-color: white;
+	padding: 5px 10px 5px 10px;
+}
+
+
+table.commentView {
+	width: 100%;
+	border-style: none;
+}
+.commentView th{
+	height: 25px;
+	background-color: #b0e0e6;
+	padding: 5px 5px 5px 5px;
+}
+.commentView td.writer{
+	width: 20%;
+	background-color: white;
+	padding: 5px 10px 5px 10px;
+}
+.commentView td.content{
+	width: 80%;
+	background-color: white;
+	padding: 5px 10px 5px 10px;
+}
+
+input.commentBt{
+	margin-left: 2%;
+	width: 15%;
+}
+
+span.date {
+	font-size: 8pt;
+	color: #666666;
+}
+
+textarea.commentForm{
+	rows: 10;
+	width: 100%;
+	border: 1;
+	cellpadding: 0;
+	height: 100px;
+	text-align: center;
+	
+	
+}
