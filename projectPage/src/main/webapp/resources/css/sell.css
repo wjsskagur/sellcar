@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+
+
 .opener{
 	margin:300px 300px 300px 300px;
 }
@@ -10,9 +13,12 @@
 .ti{
 	/* border:solid black 1px; */
 	width:1300px;
-	height:700px;
+	height:500px;
 	align:center;
+	
+	
 }
+
 .ti-left{
 	float:left;
 	align:center;
