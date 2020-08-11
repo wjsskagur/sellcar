@@ -5,7 +5,7 @@
 <div>
 <h2>내차 사진 등록</h2>
 	<form action="list.do" id="search_form" method="get">
-		<ul class="search">
+		<!-- <ul class="search">
 			<li>
 				<select name="keyfield">
 					<option value="title">제목</option>
@@ -19,7 +19,7 @@
 			<li>
 				<input type="submit" value="찾기">
 			</li>
-		</ul>
+		</ul> -->
 	</form>
 	<div class="align-right">
 		

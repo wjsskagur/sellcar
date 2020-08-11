@@ -34,7 +34,7 @@
 	</div>
 </section>
 <div id="insert">
-
+<c:if test="${!empty user_id}">
 	<!-- Section -->
 	<section class="wrapper style1">
 		<div class="inner">
@@ -154,11 +154,11 @@
 					<input type="button"
 						value="홈으로" onclick="location.href='main.do'">
 				</form:form>
-					
 				</div>
 			</div>
 		</div>
 	</section>
+	</c:if>
 </div>
 
 <script type="text/javascript"

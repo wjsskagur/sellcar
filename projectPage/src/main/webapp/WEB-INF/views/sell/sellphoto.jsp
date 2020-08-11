@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/sell.css" />
 <div title="차량 사진 등록">
 
 		<form:form action="sellPhoto.do" enctype="multipart/form-data" commandName="sellcarVO">
         <input type="hidden" name="car_num" value="${car_num}"/>
+		<div class="in-left">
 		<ul>
 		<li>
 		
@@ -24,16 +26,7 @@
 	<input type="file" id="upload3" name="upload3">
 	<form:errors path="upload3"/>
 	</li>
-	<li>	
-		<label for="upload4">차량 외부 사진</label>
-	<input type="file" id="upload4" name="upload4">
-	<form:errors path="upload4"/>
-	</li>
-	<li>
-		<label for="upload5">차량 외부 사진</label>
-	<input type="file" id="upload5" name="upload5">
-	<form:errors path="upload5"/>
-	</li>
+	
 	<li>
 		<label for="upload6">차량 내부 사진(필)</label>
 	<input type="file" id="upload6" name="upload6">
@@ -48,21 +41,6 @@
 		<label for="upload8">차량 내부 사진(필)</label>
 	<input type="file" id="upload8" name="upload8">
 	<form:errors path="upload8"/>
-	</li>
-	<li>
-		<label for="upload9">차량 내부 사진</label>
-	<input type="file" id="upload9" name="upload9">
-	<form:errors path="upload9"/>
-	</li>
-	<li>
-		<label for="upload10">차량 내부 사진</label>
-	<input type="file" id="upload10" name="upload10">
-	<form:errors path="upload10"/>
-	</li>
-	<li>
-		<label for="upload11">차량 내부 사진</label>
-	<input type="file" id="upload11" name="upload11">
-	<form:errors path="upload11"/>
 	</li>
 	<li>
 		<label for="upload12">차량 옵션 사진(필)</label>
@@ -95,6 +73,37 @@
 	<form:errors path="upload17"/>
 	</li>
 	</ul>
+	</div>
+	<div class="in-right">
+	<ul>
+	
+	<li>	
+		<label for="upload4">차량 외부 사진</label>
+	<input type="file" id="upload4" name="upload4">
+	<form:errors path="upload4"/>
+	</li>
+	<li>
+		<label for="upload5">차량 외부 사진</label>
+	<input type="file" id="upload5" name="upload5">
+	<form:errors path="upload5"/>
+	</li>
+	<li>
+		<label for="upload9">차량 내부 사진</label>
+	<input type="file" id="upload9" name="upload9">
+	<form:errors path="upload9"/>
+	</li>
+	<li>
+		<label for="upload10">차량 내부 사진</label>
+	<input type="file" id="upload10" name="upload10">
+	<form:errors path="upload10"/>
+	</li>
+	<li>
+		<label for="upload11">차량 내부 사진</label>
+	<input type="file" id="upload11" name="upload11">
+	<form:errors path="upload11"/>
+	</li>
+	</ul>
+	</div>
 	<input type="submit" value="등록">
 		</form:form>
 	</div>
