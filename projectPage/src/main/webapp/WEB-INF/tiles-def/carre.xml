@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="carreList" extends="main">
+		<put-attribute name="title" value="차량후기목록" />
+		<put-attribute name="body" value="/WEB-INF/views/carre/carrelist.jsp" />
+	</definition>
+	<definition name="carrewrite" extends="main">
+		<put-attribute name="title" value="차량후기등록" />
+		<put-attribute name="body" value="/WEB-INF/views/carre/carrewrite.jsp" />
+	</definition>
+		<definition name="carreview" extends="main">
+		<put-attribute name="title" value="차량후기상세 " />
+		<put-attribute name="body"	value="/WEB-INF/views/carre/carreview.jsp" />
+	</definition>
+	<definition name="carreModify" extends="main">
+		<put-attribute name="title" value="차량후기수정" />
+		<put-attribute name="body"	value="/WEB-INF/views/carre/carremodify.jsp" />
+	</definition>
+		<definition name="carreDelete" extends="main">
+		<put-attribute name="title" value="차량후기삭제" />
+		<put-attribute name="body"	value="/WEB-INF/views/carre/carredelete.jsp" />
+	</definition>
+		<definition name="carreReply" extends="main">
+		<put-attribute name="title" value="차량후기리플" />
+		<put-attribute name="body"	value="/WEB-INF/views/carre/carrereply.jsp" />
+	</definition>
+</tiles-definitions>

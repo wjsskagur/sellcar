@@ -1,30 +1,48 @@
-<%@ page contentType="text/html; charset=UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<br/><br/>
-<table style="font-family: 돋움; font-size: 10pt;" >
-<tr id="bbsList">
-	<td id="bbsList_title" colspan="3">
-	차량 후기 게시판
-	</td>
-</tr>
-<!-- 차량 후기 수정1-->
-<tr>
-	<td align="left" colspan="2" width="400">
-	Total ${totalArticle } articles, ${totalPage } pages / Now Page is ${currentPage }
-	</td>
-	<td align="right" colspan="1" width="200">
-	<input type="button" value="게시물등록" onclick="location.href='write.do'"/>
-	</td>
-</tr>
-<tr><td style="border-bottom:2px solid #DBDBDB;" colspan="3"></td></tr>
-<tr>
-		<td><a href="#">삭제</a></td>
-</tr>
-
-<tr><td style="border-bottom:2px solid #DBDBDB;" colspan="3"></td></tr>	
-<tr>
-
-</tr>
-</table>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="page-main-style">
+	<h1 align="center">차량 후기 게시판</h1>
+	<c:if test="${count == 0}">
+		<div class="result-display">등록된 게시물이 없습니다.</div>
+	</c:if>
+	<c:if test="${count > 0}">
+		<table>
+			<tr
+				style="background: url('../images/center.gif') repeat-x; text-align: center;">
+				<th>번호</th>
+				<th width="300">제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회수</th>
+			</tr>
+			<c:forEach var="carre" items="${list}">
+				<tr>
+					<td>${carre.num}</td>
+					<td><a href="${pageContext.request.contextPath}/carre/detail.do?num=${carre.num}">${carre.title}</a></td>
+					<td>${carre.mem_id}</td>
+					<td>${carre.reg_date}</td>
+					<td>${carre.hit}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div class="align-center">${pagingHtml}</div>
+		<div class="align-right">
+			<%-- <c:if test="${!empty user_id}"> --%>
+			<input type="button" value="글쓰기" onclick="location.href='write.do'">
+			<%-- </c:if> --%>
+		</div>
+	</c:if>
+	<form id="search_form" action="list.do" method="get">
+		<ul class="search">
+			<li><select name="keyfield">
+					<option value="title">제목</option>
+					<option value="content">내용</option>
+					<option value="id">id</option>
+			</select></li>
+			<li><input type="search" size="16" name="keyword" id="keyword">
+			</li>
+			<li><input type="submit" value="찾기"></li>
+		</ul>
+	</form>
+</div>
