@@ -20,6 +20,7 @@
 <div class="page-main-style">
 	<h2>차량후기</h2>
 	<c:if test="${count == 0}">
+	<!--sadadasdsa -->
 		<div class="result-display">등록된 게시물이 없습니다.</div>
 	</c:if>
 	<c:if test="${count > 0}">
