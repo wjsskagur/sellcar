@@ -3,6 +3,7 @@ package kr.spring.sell.service;
 import java.util.List;
 import java.util.Map;
 
+import kr.spring.sell.domain.SellPhotoVO;
 import kr.spring.sell.domain.SellcarVO;
 
 public interface SellPhoto {

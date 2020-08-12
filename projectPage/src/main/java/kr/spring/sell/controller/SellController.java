@@ -25,9 +25,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.sell.domain.SellPhotoVO;
 import kr.spring.sell.domain.SellcarVO;
 import kr.spring.sell.service.SellPhoto;
 import kr.spring.sell.service.SellService;
+import kr.spring.sell.validator.SellcarValidator;
 //import kr.spring.sell.validator.FileValidator;
 import kr.spring.util.PagingUtil;
 
@@ -58,6 +60,7 @@ public class SellController {
 	//내차팔기처리
 	@RequestMapping(value="/sell/sell.do",method=RequestMethod.POST)
 	public String sellmyCar(@Valid SellcarVO sellcar,BindingResult result,HttpServletRequest request,HttpSession session) {
+
 		if(log.isDebugEnabled()) {
 			log.debug("<<sellcarVO>> : "+sellcar);
 		}
@@ -116,13 +119,18 @@ public class SellController {
 		
 	}
 	//내차사진등록처리
-	@RequestMapping(value="/sell/sellPhoto.do",method=RequestMethod.POST)
-	public String CarPhoto(@Valid SellcarVO sellcar,BindingResult result,HttpServletRequest request,HttpSession session) {
+	@RequestMapping(value="/sell/sellphoto.do",method=RequestMethod.POST)
+	public String CarPhoto(SellcarVO sellcar,BindingResult result,HttpServletRequest request,HttpSession session) {
+		
+		
 		if(log.isDebugEnabled()) {
 			log.debug("<<sellcarVO>> : "+sellcar);
 		}
+		
+		new SellcarValidator().validate(sellcar, result);
+		
 		if(result.hasErrors()) {
-			return "sellPhoto";
+			return "sellphoto";
 		}
 		//ip반환
 		sellcar.setIp(request.getRemoteAddr());
@@ -131,7 +139,7 @@ public class SellController {
 		
 		return "redirect:/main/main.do";
 		
-	}	
+	}
 
 	
 }

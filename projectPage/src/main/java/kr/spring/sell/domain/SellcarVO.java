@@ -3,6 +3,10 @@ package kr.spring.sell.domain;
 import java.io.IOException;
 import java.sql.Date;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class SellcarVO {
@@ -57,6 +61,7 @@ public class SellcarVO {
 	private String filename15;
 	private String filename16;
 	private String filename17;
+	@NotEmpty
 	private String car_des;
 	private int board_num;
 	private String board_name;
@@ -70,18 +75,32 @@ public class SellcarVO {
 	private String ip;
 	private int car_num;
 	private int mem_auth;
+	@NotEmpty
 	private String car_name;
+	@NotEmpty
 	private String car_cate1;
+	@NotEmpty
 	private String car_cate2;
+	@NotEmpty
 	private String car_cate3;
+	@NotEmpty
 	private String car_cate4;
+	@NotEmpty
 	private String car_cate5;
+	@NotNull
 	private int car_break;
+	@NotNull
 	private int car_smoke;
+	@NotEmpty
 	private String car_outcolor;
+	@NotEmpty
 	private String car_incolor;
+	@NotEmpty
 	private String car_work;
+	@NotNull
 	private int car_debt;
+	@NotNull
+	@Min(value=1000000)
 	private int car_price;
 	private String comm_com;
 	private int fo_hit;
@@ -114,6 +133,7 @@ public class SellcarVO {
 	private String review_title;
 	private String review_con;
 	private String review_com;
+	@NotEmpty
 	private String car_number;
 	private int carp_num;
 	

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import kr.spring.sell.domain.SellPhotoVO;
 import kr.spring.sell.domain.SellcarVO;
 
 public interface SellPhotoMapper {
