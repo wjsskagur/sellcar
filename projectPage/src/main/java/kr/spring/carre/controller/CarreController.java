@@ -68,7 +68,7 @@ public class CarreController {
 		}
 				
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("carreList");
+		mav.setViewName("carrelist");
 		mav.addObject("count",count);
 		mav.addObject("list",list);
 		mav.addObject("pagingHtml",page.getPagingHtml());

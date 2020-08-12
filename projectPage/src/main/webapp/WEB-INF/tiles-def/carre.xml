@@ -6,7 +6,7 @@
 
 <tiles-definitions>
 
-	<definition name="carreList" extends="main">
+	<definition name="carrelist" extends="main">
 		<put-attribute name="title" value="차량후기목록" />
 		<put-attribute name="body" value="/WEB-INF/views/carre/carrelist.jsp" />
 	</definition>

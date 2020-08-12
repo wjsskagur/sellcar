@@ -24,6 +24,7 @@
 	<context:component-scan base-package="kr.spring.management" />
 	<context:component-scan base-package="kr.spring.qa" />
 	<context:component-scan base-package="kr.spring.sell" />
+	<context:component-scan base-package="kr.spring.carre" />
 	<!-- 메시지 처리 -->
 	<beans:bean id="messageSource"
 	  class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -45,6 +46,7 @@
 				<beans:value>/WEB-INF/tiles-def/management.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/qa.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/sell.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/carre.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
