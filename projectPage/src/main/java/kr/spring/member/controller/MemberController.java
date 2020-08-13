@@ -7,15 +7,19 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import kr.spring.member.domain.MemberVO;
 import kr.spring.member.service.MemberService;
+import kr.spring.member.validator.MemberValidator;
+import kr.spring.sell.service.SellPhoto;
 import kr.spring.util.AuthCheckException;
-
+ 
 @Controller
 public class MemberController {
 	// 로그 대상 지정
@@ -23,6 +27,9 @@ public class MemberController {
 	
 	@Resource
 	private MemberService memberService;
+	
+	@Resource
+	private SellPhoto sellPhoto;
 	
 	// 자바빈 초기화
 	@ModelAttribute
@@ -39,8 +46,8 @@ public class MemberController {
 	}
 	@RequestMapping("/member/myPage.do")
 	public String myPage(MemberVO memberVO, BindingResult result, HttpSession session,HttpServletRequest request) {
-
-	return "myPage";
+		
+		return "myPage";
 }
 	// 약관동의 체크 여부 확인 후 회원가입 폼 호출
 	@RequestMapping(value="/member/register.do", method=RequestMethod.GET)
@@ -172,4 +179,133 @@ public class MemberController {
 
 		return "memberFindIdCheck";
 	}
+	
+	@RequestMapping(value="/member/update.do",method=RequestMethod.GET)
+	public String formUpdate(HttpSession session, Model model) {
+		int mem_num = (Integer)session.getAttribute("user_num");
+		
+		MemberVO memberVO = memberService.selectMember(mem_num);
+		//속성명		속성값
+		model.addAttribute("memberVO", memberVO);
+
+		return "update";
+	}
+
+	@RequestMapping(value="/member/update.do",method=RequestMethod.POST)
+	public String submitUpdate(@Valid MemberVO memberVO, BindingResult result,HttpSession session) {
+		
+		//유효성 체크
+		new MemberValidator().validate(memberVO, result);
+		
+
+				if(result.hasFieldErrors("mem_name") ||
+				   result.hasFieldErrors("mem_cell") ||
+				   result.hasFieldErrors("mem_email") ||
+				   result.hasFieldErrors("mem_zip") ||
+				   result.hasFieldErrors("mem_addr") ||
+				   result.hasFieldErrors("mem_addr2")) {
+					return "myPage";
+				}
+		//회원 정보 수정
+		memberService.updateMember(memberVO);
+
+		return "redirect:/member/myPage.do";
+	}
+	
+	@RequestMapping(value="/member/changePassword.do",method=RequestMethod.GET)
+	public String formChangePassword(HttpSession session, Model model) {
+		//세션에 저장되어 있는 mem_num 반환
+		int mem_num = (Integer)session.getAttribute("user_num");
+		MemberVO memberVO = new MemberVO();
+		memberVO.setMem_num(mem_num);
+		model.addAttribute("memberVO", memberVO);
+		
+		return "memberChangePassword";
+	}
+	
+	//비밀번호 변경 처리
+	@RequestMapping(value="/member/changePassword.do",method=RequestMethod.POST)
+	public String submitChangePassword(@Valid MemberVO memberVO, BindingResult result) {
+		//로그 표시
+		if(log.isDebugEnabled()) {
+			log.debug("<<MemberVO>> : " + memberVO);
+		}
+		
+		//유효성 체크
+		if(result.hasFieldErrors("mem_pw")) {
+			return "memberChangePassword";
+		}
+		
+		//비밀번호 인증
+		MemberVO member = memberService.selectMember(memberVO.getMem_num());
+		if(!member.getMem_pw().equals(memberVO.getOld_pw())) {
+			result.rejectValue("old_pw", "invalidPassword");
+			
+			return "memberChangePassword";
+		}
+		
+		//비밀번호 변경
+		memberService.updatePassword(memberVO);
+		
+		
+		return "redirect:/member/myPage.do";
+	}
+	
+	//회원탈퇴 폼
+		@RequestMapping(value="/member/delete.do",method=RequestMethod.GET)
+		public String formDelete(HttpSession session, Model model) {
+			int mem_num = (Integer)session.getAttribute("user_num");
+			MemberVO memberVO = new MemberVO();
+			memberVO.setMem_num(mem_num);
+			
+			model.addAttribute("memberVO", memberVO);
+			
+			return "memberDelete";
+		}
+		
+	
+	//회원 탈퇴 처리
+		@RequestMapping(value="/member/delete.do",method=RequestMethod.POST)
+		public String submitDelete(@Valid MemberVO memberVO, BindingResult result, HttpSession session) {
+			//로그 표시
+			if(log.isDebugEnabled()) {
+				log.debug("<<MemberVO>> : " + memberVO);
+			}
+			
+			//비밀번호만 유효성 체크, 유효성 체크 결과 에러가 있으면 폼 호출
+			if(result.hasFieldErrors("mem_pw")) {
+				return "memberDelete";
+			} 
+			
+			//비밀번호 인증
+			try {
+				MemberVO member = memberService.selectMember(memberVO.getMem_num());
+				boolean check = false;
+				
+				if(member!=null) {
+					//비밀번호 인증
+					check = member.isCheckedPasswd(memberVO.getMem_pw());
+				} 
+				
+				if(check) {
+					//비밀번호 인증 성공
+					//회원탈퇴
+					memberService.delete(memberVO.getMem_num());
+					//로그아웃
+					session.invalidate();
+					
+					return "redirect:/main/main.do";
+				}else {
+					//비밀번호 인증 실패
+					throw new AuthCheckException();
+				}
+				
+			}catch(AuthCheckException e) {
+				//비밀번호 인증 실패시 에러 코드 지정하고 폼 호출
+				result.rejectValue("mem_pw", "invalidPassword");
+				
+				return "memberDelete";
+			}
+		}
+	
 }

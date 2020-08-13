@@ -16,7 +16,7 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO selectCheckMember(String id) {
 		
 		return memberMapper.selectCheckMember(id);
-	}
+	} 
 
 	@Override
 	public void insert(MemberVO member) {
@@ -31,6 +31,32 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO findMemberId(String name, String cell) {
 		
 		return memberMapper.findMemberId(name, cell);
+	}
+
+	@Override
+	public void updateMember(MemberVO member) {
+		memberMapper.updateMember(member);
+	}
+
+	
+ 
+	@Override
+	public MemberVO selectMember(int mem_num) {
+		
+		return memberMapper.selectMember(mem_num);
+	}
+
+	@Override
+	public void updatePassword(MemberVO member) {
+		memberMapper.updatePassword(member);
+		
+	}
+
+	@Override
+	public void delete(Integer mem_num) {
+		memberMapper.delete(mem_num);
+		memberMapper.deleteDetail(mem_num);
+		
 	}
 	
 }

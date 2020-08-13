@@ -1,7 +1,9 @@
 package kr.spring.member.dao;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.spring.member.domain.MemberVO;
 
@@ -23,4 +25,17 @@ public interface MemberMapper {
 	// 이름, 연락처를 받음으로서 해당 회원의 아이디 찾기
 	@Select("SELECT * FROM member m LEFT OUTER JOIN member_detail d ON m.mem_num = d.mem_num WHERE mem_name=#{mem_name} AND mem_cell=#{mem_cell}")
     public MemberVO findMemberId(@Param("mem_name") String mem_name, @Param("mem_cell") String mem_cell);
+	
+	@Select("SELECT * FROM member_detail WHERE mem_num=#{mem_num}")
+	public MemberVO selectMember(int mem_num);
+	@Update("UPDATE member_detail SET mem_name=#{mem_name},mem_email=#{mem_email},mem_cell=#{mem_cell},mem_zip=#{mem_zip},mem_addr=#{mem_addr},mem_addr2=#{mem_addr2} WHERE mem_num=#{mem_num}")
+	public void updateMember(MemberVO member); 
+	@Update("UPDATE member_detail SET mem_pw=#{mem_pw} WHERE mem_num=#{mem_num}")
+	public void updatePassword(MemberVO member);
+	
+	@Update("UPDATE member SET auth=0 WHERE mem_num=#{mem_num}")
+	public void delete(Integer mem_num);
+	@Delete("DELETE FROM member_detail WHERE mem_num=#{mem_num}")
+	public void deleteDetail(Integer mem_num);
+	
 }

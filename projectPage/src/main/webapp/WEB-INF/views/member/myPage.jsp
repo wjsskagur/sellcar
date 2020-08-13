@@ -6,11 +6,13 @@
 	
 <div class="align-center">
 <hr size="1" width="80%">
-아이디  ${user_id} 이름 ${user_name} <input type="button" value="비밀번호 변경" onclick="#">
+아이디  ${user_id} 이름 ${user_name} <input type="button" value="비밀번호 변경" onclick="location.href='${pageContext.request.contextPath}/member/changePassword.do'">
 <hr size="1" width="80%">
 이메일 ${user_email} 연락처  ${user_cell}
 <hr size="1" width="80%">
 주소 ${user_addr}  ${user_addr2}
 <hr size="1" width="80%">
-<input type="button" value="정보수정">
+<input type="button" value="정보수정" onclick="location.href='${pageContext.request.contextPath}/member/update.do'">
+<input type="button" value="회원탈퇴" onclick="location.href='${pageContext.request.contextPath}/member/delete.do'">
 </div>
+<c:import url="/sell/sellview.do"/>

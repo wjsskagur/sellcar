@@ -29,6 +29,18 @@
        <put-attribute name="title" value="마이페이지"/> 
        <put-attribute name="body" value="/WEB-INF/views/member/myPage.jsp"/>
     </definition>
+    <definition name="update" extends="main">
+       <put-attribute name="title" value="정보수정"/> 
+       <put-attribute name="body" value="/WEB-INF/views/member/memberUpdate.jsp"/>
+    </definition>
+    <definition name="memberChangePassword" extends="main">
+       <put-attribute name="title" value="정보수정"/> 
+       <put-attribute name="body" value="/WEB-INF/views/member/memberChangePassword.jsp"/>
+    </definition>
+    <definition name="memberDelete" extends="main">
+       <put-attribute name="title" value="정보수정"/> 
+       <put-attribute name="body" value="/WEB-INF/views/member/memberDelete.jsp"/>
+    </definition>
 </tiles-definitions>
 
 

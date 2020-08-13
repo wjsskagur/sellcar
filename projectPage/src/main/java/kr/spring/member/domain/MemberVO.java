@@ -31,6 +31,14 @@ public class MemberVO {
 	private String mem_addr2; // 상세
 	private Date mem_date; // 회원등록 날짜
 	
+	private String old_pw;
+	public String getOld_pw() {
+		return old_pw;
+	}
+
+	public void setOld_pw(String old_pw) {
+		this.old_pw = old_pw;
+	}
 	// 비밀번호 확인
 	public boolean isCheckedPasswd(String userPasswd) {
 		if(mem_auth > 1 && mem_pw.equals(userPasswd)) {
