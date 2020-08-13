@@ -18,8 +18,8 @@ public interface SellPhotoMapper {
 	@Select("SELECT * FROM car c JOIN member m ON c.mem_id=m.mem_id JOIN carphoto p on c.car_num = p.car_num WHERE c.mem_id=#{mem_id}")
 	public SellcarVO selectSellcar(String mem_id);
 	
-	@Select("SELECT * FROM car c JOIN member m ON c.mem_id=m.mem_id JOIN carphoto p on c.car_num = p.car_num WHERE c.car_num=#{car_num}")
-	public SellcarVO selectBoard(int car_num);
+	@Select("SELECT * FROM car c JOIN member m ON c.mem_id=m.mem_id JOIN carphoto p on c.car_num = p.car_num WHERE p.carp_num=#{carp_num}")
+	public SellcarVO selectBoard(int carp_num);
 	
 	@Select("SELECT * FROM carphoto p JOIN car c ON p.car_num=c.car_num WHERE p.car_num=#{car_num}")
 	public List<SellcarVO> selectPhoto(int car_num);

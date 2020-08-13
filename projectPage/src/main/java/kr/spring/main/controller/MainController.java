@@ -73,12 +73,12 @@ public class MainController {
 		}*/
 		}
 	@RequestMapping("/main/imageView.do")
-	public ModelAndView viewImage(@RequestParam("car_num")int car_num) {
-		SellcarVO sellcar = sellPhoto.selectBoard(car_num);
+	public ModelAndView viewImage(@RequestParam("carp_num")int carp_num) {
+		SellcarVO sellcar = sellPhoto.selectBoard(carp_num);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
-		mav.addObject("imageFile",sellcar.getUpload1());
-		
+		mav.addObject("imageFile",sellcar.getCar_mainimg());
+		mav.addObject("filename","photo.jpg");
 		
 		return mav;}
 	

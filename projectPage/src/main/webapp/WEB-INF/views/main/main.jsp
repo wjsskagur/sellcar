@@ -112,7 +112,7 @@
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="imageView.do?car_num=${board.car_num}" alt="">
+          <img class="card-img-top" src="imageView.do?carp_num=${board.carp_num}" alt="">
           <div class="card-body">
             <h4 class="card-title">${board.car_cate1}</h4>
             <p class="card-text">${board.car_cate2}<br>${board.car_cate3}</p>
