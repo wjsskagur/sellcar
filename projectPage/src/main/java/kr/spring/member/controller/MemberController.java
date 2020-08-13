@@ -275,7 +275,7 @@ public class MemberController {
 			//비밀번호만 유효성 체크, 유효성 체크 결과 에러가 있으면 폼 호출
 			if(result.hasFieldErrors("mem_pw")) {
 				return "memberDelete";
-			} 
+			}
 			
 			//비밀번호 인증
 			try {
@@ -285,7 +285,7 @@ public class MemberController {
 				if(member!=null) {
 					//비밀번호 인증
 					check = member.isCheckedPasswd(memberVO.getMem_pw());
-				} 
+				}
 				
 				if(check) {
 					//비밀번호 인증 성공
@@ -298,11 +298,12 @@ public class MemberController {
 				}else {
 					//비밀번호 인증 실패
 					throw new AuthCheckException();
-				}
+				} 
 				
 			}catch(AuthCheckException e) {
 				//비밀번호 인증 실패시 에러 코드 지정하고 폼 호출
 				result.rejectValue("mem_pw", "invalidPassword");
+				
 				
 				return "memberDelete";
 			}

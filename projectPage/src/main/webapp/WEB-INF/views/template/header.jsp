@@ -50,20 +50,8 @@
 
 <div class="align-right">
 <c:if test="${user_auth == 3}">
-			<dl id="menuwrapper">
 				<dt>관리자 페이지</dt>
-				<dd>
-					<ul>
-						<li><a
-							href="${pageContext.request.contextPath}/management/member.do">회원
-								관리</a></li>
-
-						<li><a
-							href="${pageContext.request.contextPath}/management/list.do">게시판
-								관리</a></li>
-					</ul>
-				</dd>
-			</dl>
+				<a	href="${pageContext.request.contextPath}/management/member.do">회원 관리</a>
 		</c:if>
 	<c:if test="${!empty user_id && user_auth > 1}">
 	${user_id}님<input type="button" value="로그아웃" 
