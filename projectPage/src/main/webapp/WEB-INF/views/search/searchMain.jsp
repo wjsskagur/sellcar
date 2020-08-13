@@ -80,18 +80,18 @@ input#text{
 	<b>마음속에 있는 바로 그 차! <br> 지금 검색해보세요!</b>  <br><br> 
 	<select	id="car_name" name="car_name">
 		<option id="" value="" selected>차량 종류 선택</option>
-		<option value="KIA">기아</option>
-		<option value="HAN">현대</option>
-		<option value="SAM">삼성</option>
-		<option value="FOX">기아</option>
-		<option value="DAL">현대</option>
-		<option value="DAL">삼성</option>
+		<option value="기아">기아</option>
+		<option value="현대">현대</option>
+		<option value="삼성">삼성</option>
+		<option value="스타랙스">기아</option>
+		<option value="소나타">현대</option>
+		<option value="아반떼">삼성</option>
 	</select> 
-	<select id="car_make" name="car_make">
+	<select id="car_cate1" name="car_cate1">
 		<option id="" value="" selected>모델 종류 선택</option>
-		<option value="KIA">기아</option>
-		<option value="HAN">현대</option>
-		<option value="SAM">삼성</option>
+		<option value="기아">기아</option>
+		<option value="현대">현대</option>
+		<option value="삼성">삼성</option>
 		<option value="FOX">기아</option>
 		<option value="DAL">현대</option>
 		<option value="DAL">삼성</option>
@@ -114,8 +114,8 @@ input#text{
 				<c:forEach var="search" items="${list}">
 					<tr>
 						<td>${search.car_name}</td>
-						<td>${search.car_make}</td>
-						<td>${search.car_keyword}</td>
+						<td>${search.car_cate1}</td>
+						<td>${search.car_cate2}</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -6,7 +6,7 @@
 	<select id="selectCount" parameterType="map" resultType="integer">
 		SELECT
 		COUNT(*)
-		FROM carex
+		FROM car
 	</select>
 
 	<select id="selectList" parameterType="map" resultType="search">
@@ -17,11 +17,11 @@
 		rownum rnum
 		FROM (SELECT
 		*
-		FROM carex	
+		FROM car	
 		<where>
-			<if test="car_name != null and car_make != null">
+			<if test="car_name != null and car_cate1 != null">
 			    car_name = #{car_name}
-				AND car_make like #{car_make}
+				AND car_cate1 like #{car_cate1}
 			</if>
 		</where>
 		ORDER BY

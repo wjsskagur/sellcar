@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.search.domain.Search;
 import kr.spring.search.service.SearchService;
+import kr.spring.sell.domain.SellcarVO;
 import kr.spring.util.PagingUtil;
 
 
@@ -26,9 +27,10 @@ public class SearchController {
 	private Logger log = Logger.getLogger(this.getClass());
 	
 	@RequestMapping("/search/searchMain.do")
-	public ModelAndView process(@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+	public ModelAndView process(SellcarVO sellcarVO,
+			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
 			@RequestParam(value="car_name",defaultValue="") String car_name,
-			@RequestParam(value="car_make",defaultValue="") String car_make,
+			@RequestParam(value="car_cate1",defaultValue="") String car_cate1,
 			@RequestParam(value="car_keyword",defaultValue="") String car_keyword
 			) {
 
@@ -39,13 +41,15 @@ public class SearchController {
 			log.debug("<<count>> : " + count);
 		}
 		//페이징 처리
-		PagingUtil page = new PagingUtil(currentPage, count, 10, 10, "list.do","&car_name="+car_name+"&car_make="+car_make);
+		PagingUtil page = new PagingUtil(currentPage, count, 10, 10, "list.do","&car_name="+car_name+"&car_make="+car_cate1);
 
 		List<Search> list = null;
 		if(count > 0) {
+			SellcarVO sellcar = new SellcarVO();
 			Map<String,Object> map = new HashMap<String,Object>();
 			map.put("car_name", car_name);
-			map.put("car_make", car_make);
+			map.put("car_cate1", car_cate1);
+			map.put("car_cate2", sellcar.getCar_cate2());
 			map.put("start", page.getStartCount());
 			map.put("end", page.getEndCount());
  
