@@ -18,6 +18,10 @@
        <put-attribute name="title" value="내차팔기목록"/> 
        <put-attribute name="body" value="/WEB-INF/views/sell/sellview.jsp"/>
     </definition>
+    <definition name="sellerror" extends="main">
+       <put-attribute name="title" value="내차팔기목록"/> 
+       <put-attribute name="body" value="/WEB-INF/views/sell/sellerror.jsp"/>
+    </definition>
 </tiles-definitions>
 
 

@@ -9,7 +9,7 @@
 </script>
 <div title="차량 사진 등록">
 
-	<form:form action="sellphoto.do" enctype="multipart/form-data"
+	<form:form action="sellphoto.do" enctype="multipart/form-data" id="photoForm"
 		commandName="sellcarVO">
 		<input type="hidden" name="car_num" value="${car_num}" />
 		<ul>

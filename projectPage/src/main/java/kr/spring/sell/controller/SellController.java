@@ -130,7 +130,7 @@ public class SellController {
 		new SellcarValidator().validate(sellcar, result);
 		
 		if(result.hasErrors()) {
-			return "sellphoto";
+			return "sellerror";
 		}
 		//ip반환
 		sellcar.setIp(request.getRemoteAddr());
@@ -139,6 +139,11 @@ public class SellController {
 		
 		return "redirect:/main/main.do";
 		
+	}
+	@RequestMapping("/sell/sellerror.do")
+	public String SellErr() {
+		
+		return "sellerror";
 	}
 
 	
