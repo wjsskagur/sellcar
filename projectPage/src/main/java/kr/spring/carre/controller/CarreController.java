@@ -27,7 +27,7 @@ import kr.spring.util.PagingUtil;
 @Controller
 public class CarreController {
 	private Logger log = Logger.getLogger(this.getClass());
-	private int rowCount = 10;
+	private int rowCount = 8;
 	private int pageCount = 10;
 	
 	@Resource
@@ -58,7 +58,7 @@ public class CarreController {
 		}
 		
 		//페이징 처리
-		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,rowCount,pageCount,"list.do");
+		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,rowCount,pageCount,"carrelist.do");
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 
