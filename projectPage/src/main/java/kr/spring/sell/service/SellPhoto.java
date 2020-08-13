@@ -10,5 +10,6 @@ public interface SellPhoto {
 	public List<SellcarVO> selectList(Map<String,Object> map);
 	public int selectRowCount(Map<String,Object> map);
 	public void insert(SellcarVO sellcar);
-	public SellcarVO selectBoard(String mem_id);
+	public SellcarVO selectBoard(int carp_num);
+	public List<SellcarVO> selectPhoto(int car_num);
 }

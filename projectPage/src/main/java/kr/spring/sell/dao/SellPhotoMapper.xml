@@ -19,7 +19,7 @@
 	</select>
 	<select id="selectList" parameterType="map" resultType="sellcarVO">
 		SELECT * FROM (SELECT a.*, rownum rnum FROM 
-		(SELECT * FROM car b JOIN member m ON b.mem_id=m.mem_id
+		(SELECT * FROM car b JOIN member m ON b.mem_id=m.mem_id JOIN carphoto p ON b.car_num=p.car_num
 		<where>
 			<if test="keyword != '' and keyfield == 'title'">
 				b.title LIKE '%' || #{keyword} || '%'

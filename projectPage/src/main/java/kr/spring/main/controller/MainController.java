@@ -23,6 +23,7 @@ public class MainController {
 	private Logger log = Logger.getLogger(this.getClass());
 	private int rowCount = 10;
 	private int pageCount = 10;
+	
 	//파일 업로드 경로 읽기
 	@Value("${file_path}")
 	private String path;
@@ -32,8 +33,7 @@ public class MainController {
 	@RequestMapping("/main/main.do")
 	public ModelAndView process(@RequestParam(value="pageNum",defaultValue="1")int currentPage,
 			@RequestParam(value="keyfield",defaultValue="")String keyfield,
-			@RequestParam(value="keyword",defaultValue="")String keyword) {
-		
+			@RequestParam(value="keyword",defaultValue="")String keyword){
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("keyfield", keyfield);
 		map.put("keyword", keyword);
@@ -42,9 +42,8 @@ public class MainController {
 		if(log.isDebugEnabled()) {
 			log.debug("<<Count>> : "+ count);
 		}
-		
 		//페이징처리
-		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,rowCount,pageCount,"sellview.do");
+		PagingUtil page = new PagingUtil(keyfield,keyword,currentPage,count,rowCount,pageCount,"main.do");
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 		
@@ -52,14 +51,36 @@ public class MainController {
 		if(count>0) {
 			list = sellPhoto.selectList(map);
 		}
+		/*List<SellcarVO> photo = null;
+		if(count>0) {
+			photo = sellPhoto.selectPhoto(car_num);
+		}*/
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		mav.addObject("count",count);
 		mav.addObject("list",list);
+		//mav.addObject("photo",photo);
 		mav.addObject("pagingHtml",page.getPagingHtml());
 		
 		return mav;
+		/*SellcarVO photo = new SellcarVO();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main");
+		mav.addObject("photo",photo);
+		
+		return mav;
+		}*/
 		}
+	@RequestMapping("/main/imageView.do")
+	public ModelAndView viewImage(@RequestParam("car_num")int car_num) {
+		SellcarVO sellcar = sellPhoto.selectBoard(car_num);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("imageView");
+		mav.addObject("imageFile",sellcar.getUpload1());
+		
+		
+		return mav;}
 	
 	@RequestMapping("/board/carreview.do")
 	public String carReview() {

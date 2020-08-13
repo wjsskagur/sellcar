@@ -112,13 +112,13 @@
 
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <img class="card-img-top" src="imageView.do?car_num=${board.car_num}" alt="">
           <div class="card-body">
             <h4 class="card-title">${board.car_cate1}</h4>
             <p class="card-text">${board.car_cate2}<br>${board.car_cate3}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="cardetail.do" class="btn btn-primary">더보기</a>
           </div>
         </div>
       </div>

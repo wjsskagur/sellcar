@@ -24,8 +24,8 @@ public class SellPhotoImpl implements SellPhoto{
 	}
 
 	@Override
-	public SellcarVO selectBoard(String mem_id) {
-		return sellPhoto.selectSellcar(mem_id);
+	public SellcarVO selectBoard(int carp_num) {
+		return sellPhoto.selectBoard(carp_num);
 	}
 
 	@Override
@@ -36,6 +36,11 @@ public class SellPhotoImpl implements SellPhoto{
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
 		return sellPhoto.selectRowCount(map);
+	}
+
+	@Override
+	public List<SellcarVO> selectPhoto(int car_num) {
+		return sellPhoto.selectPhoto(car_num);
 	}
 	
 	
