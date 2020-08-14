@@ -76,7 +76,8 @@
 		                 kr.spring.management.domain,
 		                 kr.spring.qa.domain,
 		                 kr.spring.sell.domain,
-		                 kr.spring.carre.domain"/>
+		                 kr.spring.carre.domain,
+		                 kr.spring.commu.domain"/>
 	</bean> 
 	<bean 
 	class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -88,7 +89,8 @@
 		                              kr.spring.management.dao,
 		                              kr.spring.qa.dao,
 		                              kr.spring.sell.dao,
-		                              kr.spring.carre.dao"/>
+		                              kr.spring.carre.dao,
+		                              kr.spring.commu.dao"/>
 	</bean>
 		
 </beans>

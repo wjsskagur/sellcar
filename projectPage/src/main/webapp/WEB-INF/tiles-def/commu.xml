@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="community" extends="main">
+       <put-attribute name="title" value="자유게시판"/> 
+       <put-attribute name="body" value="/WEB-INF/views/commu/community.jsp"/>
+    </definition>
+	<definition name="write" extends="main">
+       <put-attribute name="title" value="자유게시판"/> 
+       <put-attribute name="body" value="/WEB-INF/views/commu/write.jsp"/>
+    </definition>
+	<definition name="detail" extends="main">
+       <put-attribute name="title" value="자유게시판"/> 
+       <put-attribute name="body" value="/WEB-INF/views/commu/detail.jsp"/>
+    </definition>
+	<definition name="modify" extends="main">
+       <put-attribute name="title" value="자유게시판"/> 
+       <put-attribute name="body" value="/WEB-INF/views/commu/modify.jsp"/>
+    </definition>
+</tiles-definitions>

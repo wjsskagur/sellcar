@@ -9,7 +9,7 @@
 <hr size="1" width="27%">
 </div>
 <div class="center-center">
-<p class="font-sky"><a href="${pageContext.request.contextPath}/board/board.do">자유게시판</a></p>
+<p class="font-sky"><a href="${pageContext.request.contextPath}/commu/community.do">자유게시판</a></p>
 <hr size="1" width="27%">
 </div>
 <div class="center-left">

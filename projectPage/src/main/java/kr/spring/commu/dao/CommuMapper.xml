@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.spring.commu.dao.CommuMapper">
+	<select id="selectRowCount" parameterType="map"
+		resultType="integer">
+		SELECT COUNT(*) FROM board b JOIN member m ON b.mem_id=m.mem_id
+		<where>
+			<if test="keyword != '' and keyfield == 'title'">
+				b.board_name LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'id'">
+				m.mem_id LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'content'">
+				b.board_con LIKE '%' || #{keyword} || '%'
+			</if>
+		</where>
+	</select>
+	<select id="selectList" parameterType="map" resultType="commuVO">
+		SELECT * FROM (SELECT a.*, rownum rnum FROM
+		(SELECT * FROM board b JOIN member m ON b.mem_id=m.mem_id
+		<where>
+			<if test="keyword != '' and keyfield == 'title'">
+				b.board_name LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'id'">
+				m.mem_id LIKE '%' || #{keyword} || '%'
+			</if>
+			<if test="keyword != '' and keyfield == 'content'">
+				b.board_con LIKE '%' || #{keyword} || '%'
+			</if>
+		</where>
+		ORDER BY b.mem_id DESC)a)
+		<![CDATA[
+		WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
+	<update id="update" parameterType="commuVO">
+		UPDATE board SET
+		<if test="board_filename != ''">
+			board_img=#{board_img},
+			board_filename=#{board_filename},
+		</if>
+		board_name=#{board_name},
+		board_con=#{board_con},
+		ip=#{ip},mod_date=SYSDATE WHERE board_num=#{board_num}
+	</update>
+</mapper>
+
+
+
+
+
+
+
