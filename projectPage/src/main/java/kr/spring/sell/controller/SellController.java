@@ -36,8 +36,8 @@ import kr.spring.util.PagingUtil;
 @Controller
 public class SellController {
 	private Logger log = Logger.getLogger(this.getClass());
-	private int rowCount = 10;
-	private int pageCount = 10;
+	private int rowCount = 100;
+	private int pageCount = 100;
 	//파일 업로드 경로 읽기
 	@Value("${file_path}")
 	private String path;
@@ -83,10 +83,12 @@ public class SellController {
 			@RequestMapping("/sell/sellview.do")
 			public ModelAndView process(@RequestParam(value="pageNum",defaultValue="1")int currentPage,
 										@RequestParam(value="keyfield",defaultValue="")String keyfield,
-										@RequestParam(value="keyword",defaultValue="")String keyword) {
+										@RequestParam(value="keyword",defaultValue="")String keyword,
+										HttpSession session) {
 			Map<String,Object> map = new HashMap<String,Object>();
 			map.put("keyfield", keyfield);
 			map.put("keyword", keyword);
+			map.put("mem_id",(String)session.getAttribute("user_id"));
 			
 			int count = sellPhoto.selectRowCount(map);
 			if(log.isDebugEnabled()) {
@@ -99,7 +101,7 @@ public class SellController {
 			
 			List<SellcarVO> list =null;
 			if(count>0) {
-				list = sellPhoto.selectList(map);
+				list = sellPhoto.selectCar(map);
 			}
 			ModelAndView mav = new ModelAndView();
 			mav.setViewName("sellview");

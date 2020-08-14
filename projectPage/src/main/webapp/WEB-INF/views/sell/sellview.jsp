@@ -39,17 +39,17 @@
 		
 	</tr>
 	<c:forEach var="board" items="${list}">
-	<c:if test="${user_id == board.mem_id}">
+	
 	<tr>
 		<td><a href="sellphoto.do?car_num=${board.car_num}">${board.car_number}</a></td>
 		<td>${board.car_cate1}</td>
 		<td>${board.car_cate2}</td>
-		<td>${board.car_cate3 }</td>
+		<td>${board.car_cate3}</td>
 		<td>${board.mem_id}</td>
 		<td>${board.mod_date}</td>
 		
 	</tr>
-	</c:if>
+	
 	</c:forEach>
 	</table>
 	<div class="align-center">${pagingHtml}</div>

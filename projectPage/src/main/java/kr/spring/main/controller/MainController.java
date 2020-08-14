@@ -21,8 +21,8 @@ import kr.spring.util.PagingUtil;
 @Controller
 public class MainController {
 	private Logger log = Logger.getLogger(this.getClass());
-	private int rowCount = 10;
-	private int pageCount = 10;
+	private int rowCount = 100;
+	private int pageCount = 100;
 	
 	//파일 업로드 경로 읽기
 	@Value("${file_path}")

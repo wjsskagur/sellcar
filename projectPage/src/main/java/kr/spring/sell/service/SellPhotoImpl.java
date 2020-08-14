@@ -42,6 +42,11 @@ public class SellPhotoImpl implements SellPhoto{
 	public List<SellcarVO> selectPhoto(int car_num) {
 		return sellPhoto.selectPhoto(car_num);
 	}
+
+	@Override
+	public List<SellcarVO> selectCar(Map<String, Object> map) {
+		return sellPhoto.selectCar(map);
+	}
 	
 	
 
