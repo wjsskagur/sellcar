@@ -2,9 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#modify_form').submit(function() {
+				alert("글 수정 완료!");
+				return true;
+		});
+	});
+</script>
 <div class="page-main-style">
 	<h2>글 수정</h2>
-	<form:form action="modify.do" enctype="multipart/form-data" commandName="commuVO">
+	<form:form action="modify.do" enctype="multipart/form-data" commandName="commuVO" id="modify_form">
 	<form:hidden path="board_num"/>
 		<ul>    
 			<li>
