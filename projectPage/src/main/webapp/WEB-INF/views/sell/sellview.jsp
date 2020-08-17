@@ -41,7 +41,7 @@
 	<c:forEach var="board" items="${list}">
 	
 	<tr>
-		<td><a href="sellphoto.do?car_num=${board.car_num}">${board.car_number}</a></td>
+		<td><a href="${pageContext.request.contextPath}/sell/sellphoto.do?car_num=${board.car_num}">${board.car_number}</a></td>
 		<td>${board.car_cate1}</td>
 		<td>${board.car_cate2}</td>
 		<td>${board.car_cate3}</td>
