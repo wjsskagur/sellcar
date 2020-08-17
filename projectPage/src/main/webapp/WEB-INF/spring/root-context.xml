@@ -12,7 +12,7 @@
 	
 	<!-- 빈 자동 스캔 - servlet-context.xml에서 Controller를
 	자동 스캔 설정해서 아래 설정에서는 Controller 자동 스캔 제외 -->
-	<context:component-scan base-package="kr.spring.*">
+	<context:component-scan base-package="kr.spring">
 		<context:exclude-filter type="annotation" 
 		     expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan> 

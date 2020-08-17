@@ -21,6 +21,7 @@ textarea.commentForm{
 			location.href='delete.do?num=${qa.num}';
 		}
 	}
+	
 </script>
 <div class="page-main-style">
 	<table class="boardView">
@@ -28,7 +29,7 @@ textarea.commentForm{
 		<td colspan="5"><h2>${qa.title}</h2></td>
 	</tr>
 	<tr>
-		<th>번호</th>
+		<th width="12%">번호</th>
 		<th>작성자</th>
 		<th>조회수</th>
 		<th>작성일</th>
@@ -58,37 +59,38 @@ textarea.commentForm{
 		<td colspan="5" align="left"><p>${qa.content}</p></td>
 	</tr>
 	</table>
+	
+		<!-- 댓글 목록 영역 -->
+	<table class="commentView">
+		<tr>
+			<th colspan="5">관리자 답변</th>
+		</tr>		
+		<tr>
+			<td class="writer" width="12%"><strong>SELLCAR</strong></td>				
+			<td class="content">
+				<c:forEach var="reply" items="${reply}">
+				   <p><c:out value="${reply.content}"/></p>
+				</c:forEach>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- 댓글쓰기 영역 -->
 	<c:if test="${user_auth == 3}">
 	<table class="commentView">
 		<tr>
 			<th colspan="2">댓글</th>
 		</tr>		
-		<c:forEach var="comment" items="${commentList}">
-		<tr>
-			<td class="writer">				
-				<p>${comment.writer}
-				<c:if test="${comment.writerId == user_id}">
-					<br /><a onclick="commentDelete(${comment.idx}, ${board.idx})"><small>댓글 삭제</small></a>					
-				</c:if>
-				</p>
-			</td>
-			<td class="content" align="left">
-				<span class="date">${comment.reg_date}</span>
-				<p>${comment.content}</p>
-			</td>
-		</tr>
-		</c:forEach>
 		<tr>
 			<td class="writer"><strong>댓글 쓰기</strong></td>
-			<td class="content">
-					<input type="hidden" id="writer" name="writer" value="${mem_id}" />
-					<input type="hidden" id="linkedArticleNum" name="linkedArticleNum" />
+			<td class="content">			
 					<textarea name="content" class="textarea" style="width: 1235px"></textarea>
-					<input type="submit" value="확인" class="commentBt" onclick="location.href='commentWrite.do'" />
+					<input type="submit" value="확인" class="replyBt" onclick="location.href='replyWrite.do'" />	
 			</td>
 		</tr>
 	</table>
 	</c:if>
+		
 	<div class="align-right">
 		<!-- 글 수정 및 삭제를 하려면 로그인한 후 로그인 아이디와 작성자 아이디가 일치 -->
 		<c:if test="${!empty user_id && user_id == qa.mem_id}">

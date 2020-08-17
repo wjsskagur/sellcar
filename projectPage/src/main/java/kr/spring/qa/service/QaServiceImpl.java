@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.qa.dao.QaMapper;
 import kr.spring.qa.domain.QaVO;
+import kr.spring.qa.domain.ReplyVO;
 
 @Service("qaService")
 public class QaServiceImpl implements QaService {
@@ -22,6 +23,11 @@ public class QaServiceImpl implements QaService {
 		return qaMapper.selectList(map);
 	}
 
+	@Override
+	public List<ReplyVO> readReply(Map<String, Object> map) {
+		return qaMapper.readReply(map);
+	}
+	
 	@Override
 	public int selectRowCount(Map<String, Object> map) {
 		

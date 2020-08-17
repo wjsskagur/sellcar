@@ -63,6 +63,15 @@
  		
  	</update>
  	
+ 	 
+ 	<select id="readReply" parameterType="map" resultType="replyVO">
+    	SELECT
+    		  RNO, CONTENT, WRITER, REGDATE
+    	 FROM REPLY
+    	WHERE BNO = #{bno}
+	</select> 
+	
+
 </mapper>
 
 

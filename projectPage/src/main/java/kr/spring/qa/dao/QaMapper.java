@@ -9,9 +9,11 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import kr.spring.qa.domain.QaVO;
+import kr.spring.qa.domain.ReplyVO;
 
 public interface QaMapper {
 	public List<QaVO> selectList(Map<String,Object> map);
+	public List<ReplyVO> readReply(Map<String,Object> map);
 	public int selectRowCount(Map<String,Object> map);
 	@Insert("INSERT INTO qnaboard (num,title,content,uploadfile,filename,ip,mem_num) VALUES (board_seq.nextval,#{title},#{content},#{uploadfile},#{filename},#{ip},#{mem_num})")
 	public void insert(QaVO qa);

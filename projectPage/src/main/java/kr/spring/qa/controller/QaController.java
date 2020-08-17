@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.spring.qa.domain.QaVO;
+import kr.spring.qa.domain.ReplyVO;
 import kr.spring.qa.service.QaService;
 import kr.spring.util.PagingUtil;
 
@@ -111,12 +112,25 @@ public class QaController {
 
 		//조회수 증가
 		qaService.updateHit(num);
-
+		
+		//댓글 목록 가져오기
 		QaVO qa = qaService.selectBoard(num);
-
-
+		Map<String,Object> paramMap = new HashMap<String,Object>();
+		paramMap.put("bno", num);
+		List<ReplyVO> reply = qaService.readReply(paramMap);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("qaView");
+		mav.addObject("qa",qa);
+		mav.addObject("reply",reply);
+		
+		if(log.isDebugEnabled()) {
+			log.debug("<<reply>> : " + reply);
+		}
+		
 		//뷰 이름		,속성명     , 속성값
-		return new ModelAndView("qaView","qa", qa);
+		//return new ModelAndView("qaView","qa", qa);
+		return mav;
 	}
 	//파일 다운로드
 	@RequestMapping("/qa/file.do")
