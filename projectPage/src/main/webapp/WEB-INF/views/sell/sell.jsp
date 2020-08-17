@@ -27,7 +27,7 @@
 		<a href="${pageContext.request.contextPath}/member/login.do" class="button big scrolly">로그인 후 이용가능합니다</a>
 		</c:if>
 		<c:if test="${!empty user_id}">
-		<a href="${pageContext.request.contextPath}/main/main.do" class="button big scrolly">내차 팔기 알아보기</a>
+		<a href="${pageContext.request.contextPath}/qa/list.do" class="button big scrolly">내차 팔기 알아보기</a>
 		<a href="#insert" class="button big scrolly">차량 정보 등록</a>
 		<a href="${pageContext.request.contextPath}/sell/sellview.do" class="button big scrolly">내차 사진등록</a>
 		</c:if>
