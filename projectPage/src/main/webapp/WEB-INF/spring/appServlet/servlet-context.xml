@@ -19,13 +19,13 @@
 	<context:component-scan base-package="kr.spring.main.controller" />
 	<context:component-scan base-package="kr.spring.member.controller" />
 	<context:component-scan base-package="kr.spring.board.controller" />
-	<context:component-scan base-package="kr.spring.search" />
-	<context:component-scan base-package="kr.spring.map" />
-	<context:component-scan base-package="kr.spring.management" />
-	<context:component-scan base-package="kr.spring.qa" />
-	<context:component-scan base-package="kr.spring.sell" />
-	<context:component-scan base-package="kr.spring.carre" />
-	<context:component-scan base-package="kr.spring.commu" />
+	<context:component-scan base-package="kr.spring.search.controller" />
+	<context:component-scan base-package="kr.spring.map.controller" />
+	<context:component-scan base-package="kr.spring.management.controller" />
+	<context:component-scan base-package="kr.spring.qa.controller" />
+	<context:component-scan base-package="kr.spring.sell.controller" />
+	<context:component-scan base-package="kr.spring.carre.controller" />
+	<context:component-scan base-package="kr.spring.commu.controller" />
 	<!-- 메시지 처리 -->
 	<beans:bean id="messageSource"
 	  class="org.springframework.context.support.ResourceBundleMessageSource">
