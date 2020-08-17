@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <div class="page-main-style">
 	<h2>게시판 목록</h2>
 	<form action="community.do" id="search_form" method="get">
@@ -30,7 +31,7 @@
 	<div class="result-display">등록된 게시물이 없습니다.</div>
 	</c:if>
 	<c:if test="${count>0}">
-	<table>
+	<table class="table table-striped">
 	<tr>
 		<th>번호</th>
 		<th width="300">제목</th>

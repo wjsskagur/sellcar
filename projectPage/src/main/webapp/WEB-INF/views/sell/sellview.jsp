@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <div>
 <h2>내차 사진 등록</h2>
 	<form action="list.do" id="search_form" method="get">
@@ -28,7 +29,7 @@
 	<div class="result-display">등록된 게시물이 없습니다.</div>
 	</c:if>
 	<c:if test="${count>0}">
-	<table>
+	<table class="table table-hover">
 	<tr>
 		<th>차량번호</th>
 		<th>제조사</th>
