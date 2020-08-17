@@ -17,15 +17,15 @@
 		rownum rnum
 		FROM (SELECT
 		*
-		FROM car	
+		FROM car b JOIN carphoto p ON b.car_num=p.car_num
 		<where>
 			<if test="car_name != null and car_cate1 != null">
-			    car_name = #{car_name}
-				AND car_cate1 like #{car_cate1}
+			    b.car_name = #{car_name}
+				AND b.car_cate1 = #{car_cate1}
 			</if>
 		</where>
 		ORDER BY
-		car_num DESC)a)
+		b.car_num DESC)a)
 		<![CDATA[
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>

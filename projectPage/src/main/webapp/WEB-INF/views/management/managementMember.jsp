@@ -11,6 +11,7 @@
 		<th>전화번호</th>
 		<th>이메일</th>
 		<th>가입일</th>
+		<th>설정</th>
 	</tr>
 	<c:forEach var="member" items="${list}">
 	<c:if test="${member.mem_auth < 3}">
@@ -22,6 +23,10 @@
 		<td>${member.mem_cell}</td>
 		<td>${member.mem_email}</td>
 		<td>${member.mem_date}</td>
+		<td class="align-center">
+			<input type="button" value="등급변경" onclick="location.href='memberLevel.do?mem_id=${member.mem_id}'">
+			<input type="button" value="강제탈퇴" onclick="location.href='memberclear.do?mem_id=${member.mem_id}'">
+		</td>
 	</tr>
 	</c:if>
 	</c:forEach>

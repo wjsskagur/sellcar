@@ -5,6 +5,9 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/search.css"
 	type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources//css/bootstrap.min.css">
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
 	<script>
     	$(document).ready(function(){
@@ -28,6 +31,9 @@ b{
 	margin:100px 0 100px 0;
 	padding:10px;
 	
+}
+text-align{
+	text-align:center;
 }
 select {
 	margin-top: 30px;
@@ -82,7 +88,7 @@ input#text{
 		<option id="" value="" selected>차량 종류 선택</option>
 		<option value="기아">기아</option>
 		<option value="현대">현대</option>
-		<option value="삼성">삼성</option>
+		<option value="테스트">테스트</option>
 		<option value="스타랙스">기아</option>
 		<option value="소나타">현대</option>
 		<option value="아반떼">삼성</option>
@@ -92,7 +98,7 @@ input#text{
 		<option value="기아">기아</option>
 		<option value="현대">현대</option>
 		<option value="삼성">삼성</option>
-		<option value="FOX">기아</option>
+		<option value="테스트">테스트</option>
 		<option value="DAL">현대</option>
 		<option value="DAL">삼성</option>
 	</select> 
@@ -101,24 +107,29 @@ input#text{
 </div>
 </div>
 </form>
+<section>
 <c:if test="${count==0}">
 		<div class="result-display">등록된 게시물이 없습니다.</div>
 	</c:if>
 	<c:if test="${count>0}">
-			<table>
-				<tr>
-					<th>차이름</th>
-					<th>제조사</th>
-					<th>세부사항</th>
-				</tr>
-				<c:forEach var="search" items="${list}">
-					<tr>
-						<td>${search.car_name}</td>
-						<td>${search.car_cate1}</td>
-						<td>${search.car_cate2}</td>
-					</tr>
-				</c:forEach>
-			</table>
-			<div class="align-center">${pagingHtml}</div>
+			<div class="row text-center">
+	<c:forEach var="search" items="${list}">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="${pageContext.request.contextPath}/main/imageView.do?carp_num=${search.carp_num}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">${search.car_cate1}</h4>
+            <p class="card-text">${search.car_cate2}<br>${search.car_cate3}</p>
+          </div>
+          <div class="card-footer">
+            <a href="cardetail.do" class="btn btn-primary">더보기</a>
+          </div>
+        </div>
+      </div>
+	</c:forEach>
+    </div>
 		</c:if>
-
+		</section>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
