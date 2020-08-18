@@ -4,12 +4,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/sell.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
-	
+$(function(){
+	$('#photo_form').submit(function() {
+			alert("차량 사진 등록 완료!");
+			return true;
+	});
+});
 </script>
 <div title="차량 사진 등록">
 
-	<form:form action="sellphoto.do" enctype="multipart/form-data" id="photoForm"
+	<form:form action="sellphoto.do" enctype="multipart/form-data" id="photo_form"
 		commandName="sellcarVO">
 		<input type="hidden" name="car_num" value="${car_num}" />
 		<ul>

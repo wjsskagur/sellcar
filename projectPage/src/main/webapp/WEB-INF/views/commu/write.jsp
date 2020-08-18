@@ -1,9 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#write_form').submit(function() {
+				alert("글 등록 완료!");
+				return true;
+		});
+	});
+</script>
 <div class="page-main-style">
 	<h2>글 쓰기</h2>
-	<form:form action="write.do" enctype="multipart/form-data" commandName="commuVO">
+	<form:form action="write.do" enctype="multipart/form-data" commandName="commuVO" id="write_form">
 		<form:hidden path="board_num" />
 		<ul>    
 			<li>
