@@ -7,8 +7,14 @@
 <%-- <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/jquery-ui.min.css"> --%>
 
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript">
-	
+	$(function(){
+		$('#sell_form').submit(function() {
+				alert("차량 정보 등록 완료!");
+				return true;
+		});
+	});
 </script>
 
 <title>내차 팔기</title>
@@ -46,7 +52,7 @@
 					</div>
 				</div>
 				<div class="col col2">
-					<form:form action="sell.do" commandName="sellcarVO">
+					<form:form action="sell.do" commandName="sellcarVO" id="sell_form">
 				<form:hidden path="car_num" />
 				<div class="in-left">
 						<ul>
