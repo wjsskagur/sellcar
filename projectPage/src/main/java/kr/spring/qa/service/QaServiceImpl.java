@@ -63,5 +63,4 @@ public class QaServiceImpl implements QaService {
 		qaMapper.delete(num);
 		
 	}
-
 }

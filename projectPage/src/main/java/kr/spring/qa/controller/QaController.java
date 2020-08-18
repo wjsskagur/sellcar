@@ -53,7 +53,7 @@ public class QaController {
 
 		//게시판의 총 레코드수 또는 검색 레코드 수 반환
 		int count = qaService.selectRowCount(map);
-
+				
 		if(log.isDebugEnabled()) {
 			log.debug("<<count>> : " + count);
 		}

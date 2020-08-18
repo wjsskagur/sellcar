@@ -71,7 +71,24 @@
     	WHERE BNO = #{bno}
 	</select> 
 	
-
+	<insert id="writeReply">
+		INSERT INTO REPLY(
+			BNO
+			, RNO
+			, CONTENT
+			, WRITER
+		)
+		VALUES(#{bno}
+			, MP_REPLY_SEQ.NEXTVAL
+			, #{content}
+			, #{writer})
+	</insert>
+	
+	<update id="updateRecnt" parameterType="int">
+		update qnaboard b
+		set b.recnt = (select count(rno) from reply where bno=#{bno})
+		where b.num = #{num}
+	</update>
 </mapper>
 
 

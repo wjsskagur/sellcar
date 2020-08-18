@@ -15,6 +15,7 @@
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
+				<th>상태</th>
 			</tr>
 			<c:forEach var="qa" items="${list}">
 				<tr>
@@ -23,6 +24,10 @@
 					<td>${qa.mem_id}</td>
 					<td>${qa.reg_date}</td>
 					<td>${qa.hit}</td>
+					<td>
+						<c:if test="${recnt > 0}"/>
+						답변대기
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -64,7 +64,7 @@ textarea.commentForm{
 	<table class="commentView">
 		<tr>
 			<th colspan="5">관리자 답변</th>
-		</tr>		
+		</tr>
 		<tr>
 			<td class="writer" width="12%"><strong>SELLCAR</strong></td>				
 			<td class="content">
@@ -74,7 +74,6 @@ textarea.commentForm{
 			</td>
 		</tr>
 	</table>
-	
 	<!-- 댓글쓰기 영역 -->
 	<c:if test="${user_auth == 3}">
 	<table class="commentView">
@@ -82,9 +81,9 @@ textarea.commentForm{
 			<th colspan="2">댓글</th>
 		</tr>		
 		<tr>
-			<td class="writer"><strong>댓글 쓰기</strong></td>
+			<td class="writer" width="12%"><strong>댓글 쓰기</strong></td>
 			<td class="content">			
-					<textarea name="content" class="textarea" style="width: 1235px"></textarea>
+					<textarea name="content" class="textarea" style="width: 1110px"></textarea>
 					<input type="submit" value="확인" class="replyBt" onclick="location.href='replyWrite.do'" />	
 			</td>
 		</tr>
