@@ -19,7 +19,7 @@ public class ManagementServiceImpl implements ManagementService {
 	public List<MemberVO> selectList(Map<String, Object> map) {
 		
 		return managementMapper.selectList(map);
-	}
+	} 
 
 	@Override
 	public int selectRowCount() {
@@ -32,5 +32,17 @@ public class ManagementServiceImpl implements ManagementService {
 		
 		return managementMapper.selectMember(mem_id);
 	}
+
+	@Override
+	public void clear(int mem_num) {
+		 managementMapper.clear(mem_num);
+		 managementMapper.clearDetail(mem_num);
+	}
+
+	@Override
+	public void level(int mem_auth,int mem_num) {
+		managementMapper.level(mem_auth,mem_num);
+	}
+
 	
 }

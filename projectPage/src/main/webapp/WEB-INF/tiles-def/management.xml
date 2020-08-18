@@ -13,8 +13,12 @@
        <put-attribute name="title" value="회원관리"/> 
        <put-attribute name="body" value="/WEB-INF/views/management/managementMemberView.jsp"/>
     </definition>
-    <definition name="managementList" extends="main">
+    <definition name="memberclear" extends="main">
        <put-attribute name="title" value="게시판 관리"/> 
-       <put-attribute name="body" value="/WEB-INF/views/management/managementList.jsp"/>
+       <put-attribute name="body" value="/WEB-INF/views/management/memberclear.jsp"/>
+    </definition>
+    <definition name="memberLevel" extends="main">
+       <put-attribute name="title" value="게시판 관리"/> 
+       <put-attribute name="body" value="/WEB-INF/views/management/memberLevel.jsp"/>
     </definition>
 </tiles-definitions>

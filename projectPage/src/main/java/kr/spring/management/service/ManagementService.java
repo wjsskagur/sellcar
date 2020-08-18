@@ -9,4 +9,6 @@ public interface ManagementService {
 	public List<MemberVO> selectList(Map<String, Object> map);
 	public int selectRowCount();
 	public MemberVO selectMember(String mem_id);
+	public void clear(int mem_num);
+	public void level(int mem_auth,int mem_num);
 }
