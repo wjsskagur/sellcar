@@ -17,4 +17,9 @@ public class SellServiceImpl implements SellService{
 	public void insert(SellcarVO sellcar) {
 		sellMapper.insert(sellcar);
 	}
+
+	@Override
+	public SellcarVO selectBoard(Integer carp_num) {
+		return sellMapper.selectBoard(carp_num);
+	}
 }

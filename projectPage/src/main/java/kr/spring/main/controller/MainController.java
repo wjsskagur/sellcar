@@ -73,14 +73,51 @@ public class MainController {
 		}*/
 		}
 	@RequestMapping("/main/imageView.do")
-	public ModelAndView viewImage(@RequestParam("carp_num")int carp_num) {
+	public ModelAndView viewImage(@RequestParam("carp_num")int carp_num, @RequestParam("filename")String filename) {
 		SellcarVO sellcar = sellPhoto.selectBoard(carp_num);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("imageView");
-		mav.addObject("imageFile",sellcar.getCar_mainimg());
-		mav.addObject("filename","photo.jpg");
+
+		if(filename.equals("mainimage")){
+			mav.addObject("imageFile",sellcar.getCar_mainimg());
+		}else if(filename.equals("car_img1")) {
+			
+			mav.addObject("imageFile",sellcar.getCar_img1());
+		}else if(filename.equals("car_img2")) {
+			mav.addObject("imageFile",sellcar.getCar_img2());
+		}else if(filename.equals("car_img3")) {
+			mav.addObject("imageFile",sellcar.getCar_img3());
+		}else if(filename.equals("car_img4")) {
+			mav.addObject("imageFile",sellcar.getCar_img4());
+		}else if(filename.equals("car_img5")) {
+			mav.addObject("imageFile",sellcar.getCar_img5());
+		}else if(filename.equals("car_img6")) {
+			mav.addObject("imageFile",sellcar.getCar_img6());
+		}else if(filename.equals("car_img7")) {
+			mav.addObject("imageFile",sellcar.getCar_img7());
+		}else if(filename.equals("car_img8")) {
+			mav.addObject("imageFile",sellcar.getCar_img8());
+		}else if(filename.equals("car_img9")) {
+			mav.addObject("imageFile",sellcar.getCar_img9());
+		}else if(filename.equals("car_img10")) {
+			mav.addObject("imageFile",sellcar.getCar_img10());
+		}else if(filename.equals("car_option")) {
+			mav.addObject("imageFile",sellcar.getCar_option());
+		}else if(filename.equals("car_test")) {
+			mav.addObject("imageFile",sellcar.getCar_test());
+		}else if(filename.equals("car_content")) {
+			mav.addObject("imageFile",sellcar.getCar_content());
+		}else if(filename.equals("map_img")) {
+			mav.addObject("imageFile",sellcar.getMap_img());
+		}else if(filename.equals("car_log")) {
+			mav.addObject("imageFile",sellcar.getCar_log());
+		}else if(filename.equals("car_detail")) {
+			mav.addObject("imageFile",sellcar.getCar_detail());
+		}
+		mav.addObject("filename",filename+".jpg");
 		
-		return mav;}
+		return mav;
+	}
 	
 	@RequestMapping("/board/carreview.do")
 	public String carReview() {
