@@ -6,7 +6,11 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/board.css" />
-	
+<style>
+	div{
+		margin-top:15px;
+	}
+</style>
 <body>
 <div class="main">
 <h2 class="title">COMMUNITY</h2>

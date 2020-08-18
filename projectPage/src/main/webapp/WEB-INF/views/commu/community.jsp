@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
+<style>
+	div{
+		margin-top:15px;
+	}
+	</style>
 <div class="page-main-style">
 	<h2>게시판 목록</h2>
 	<form action="community.do" id="search_form" method="get">

@@ -39,9 +39,37 @@ div#main_footer{
 
 	body {
 		position: relative;
-		padding-top: 5em;
+		padding-top: 6em;
 	}
 
+
+	#login {
+		background: #353535;
+		color: #d5d5d5;
+		cursor: default;
+		margin-top:5em;
+		height: 3em;
+		left: 0;
+		line-height: 3em;
+		position: fixed;
+		text-align: right;
+		top: 0;
+		width: 100%;
+		z-index: 10001;
+	}
+	#login a {
+			-moz-transition: color 0.2s ease-in-out;
+			-webkit-transition: color 0.2s ease-in-out;
+			-ms-transition: color 0.2s ease-in-out;
+			transition: color 0.2s ease-in-out;
+			display: inline-block;
+			padding: 0 2em;
+			color: #ffffff;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 1.2em;
+		}
 	#header {
 		background: #1c1c1c;
 		color: #d5d5d5;
@@ -55,6 +83,7 @@ div#main_footer{
 		width: 100%;
 		z-index: 10001;
 	}
+	
 
 		#header .inner {
 			max-width: 65em;

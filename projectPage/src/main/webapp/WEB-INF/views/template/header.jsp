@@ -39,30 +39,16 @@
 			검색</a> <a href="${pageContext.request.contextPath}/sell/sell.do">내차
 			팔기</a> 
 			<a href="${pageContext.request.contextPath}/carre/carrelist.do">차량 후기</a>
-			<a href="${pageContext.request.contextPath}/commu/community.do">자유 게시판</a>
 			<a href="${pageContext.request.contextPath}/member/myPage.do">마이페이지</a> <a
 			href="${pageContext.request.contextPath}/board/center.do">고객센터</a>
+				
 	</nav>
-
-</header>
+	</header>
 <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 
 
-<div class="align-right">
-<c:if test="${user_auth == 3}">
-				<dt>관리자 페이지</dt>
-				<a	href="${pageContext.request.contextPath}/management/member.do">회원 관리</a>
-		</c:if>
-	<c:if test="${!empty user_id && user_auth > 1}">
-	${user_id}님<input type="button" value="로그아웃" 
-					onclick="location.href='${pageContext.request.contextPath}/member/logout.do'">	
-	</c:if>
-	<c:if test="${empty user_id}">
-	<a href="${pageContext.request.contextPath}/member/registerAgree.do">회원가입</a>	
-	<a href="${pageContext.request.contextPath}/member/login.do">로그인</a>
-	</c:if>
-</div>
+
 
 
 
