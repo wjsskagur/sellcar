@@ -41,7 +41,6 @@ th {
 	background-color: #1C1C1C;
 	color: white;
 }
-
 </style>
 
 <div class="page-main-style">
@@ -99,14 +98,14 @@ th {
 			<tr><td><c:if test="${!empty sell.car_option}">
 					<img
 						src="imageView.do?carp_num=${sell.carp_num}&filename=car_option"
-						class="img-responsive" alt="Cinque Terre" width="304" height="236">
+						class="img-responsive" alt="Cinque Terre" width=auto; height=154;>
 				</c:if></td>
 		</tr>
 		<tr>
 			<th><h1>차량 점검표</h1></th></tr>
 			<tr><td><c:if test="${!empty sell.car_test}">
 					<img src="imageView.do?carp_num=${sell.carp_num}&filename=car_test"
-						class="img-responsive" alt="Cinque Terre" width="304" height="236">
+						class="img-responsive" alt="Cinque Terre" width=auto height=auto>
 				</c:if></td>
 		</tr>
 		<tr>
@@ -116,7 +115,7 @@ th {
 				<tr><td><c:if test="${!empty sell.car_content}">
 				<img
 						src="imageView.do?carp_num=${sell.carp_num}&filename=car_content"
-						class="img-responsive" alt="Cinque Terre" width="304" height="236">
+						class="img-responsive" alt="Cinque Terre" width=auto height=auto>
 				</c:if></td></tr>
 		<tr>
 			<th><h1>희망 전시장</h1></th>
@@ -124,7 +123,7 @@ th {
 				<tr>			<td><c:if test="${!empty sell.map_img}">
 					<img
 						src="imageView.do?carp_num=${sell.carp_num}&filename=map_img"
-						class="img-responsive" alt="Cinque Terre" width="304" height="236">
+						class="img-responsive" alt="Cinque Terre" width=auto height=auto>
 				</c:if></td></tr>
 		<tr>
 			<th><h1>차량 요약</h1></th>
@@ -132,15 +131,15 @@ th {
 				<tr><td><c:if test="${!empty sell.car_log}">
 				<img
 						src="imageView.do?carp_num=${sell.carp_num}&filename=car_log"
-						class="img-responsive" alt="Cinque Terre" width="304" height="236">
-				</c:if></td></tr>
+						class="img-responsive" alt="Cinque Terre" width=auto height=auto>
+			</c:if></td></tr>
 		<tr>
 			<th><h1>차량 상세설명</h1></th>
 		</tr>
 				<tr><td colspan="2"><c:if test="${!empty sell.car_detail}">
 					<img
 						src="imageView.do?carp_num=${sell.carp_num}&filename=car_detail"
-						class="img-responsive" alt="Cinque Terre" width="304" height="236">
+						class="img-responsive" alt="Cinque Terre" width=auto height=auto>
 				</c:if></td></tr>
 	</table>
 
@@ -150,6 +149,6 @@ th {
 
 	<div class="align-right">
 		<input type="button" value="목록으로"
-			onclick="location.href='carrelist.do'">
+			onclick="location.href='main.do'">
 	</div>
 </div>
