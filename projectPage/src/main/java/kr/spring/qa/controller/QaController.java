@@ -112,7 +112,7 @@ public class QaController {
 
 		//조회수 증가
 		qaService.updateHit(num);
-		
+				
 		//댓글 목록 가져오기
 		QaVO qa = qaService.selectBoard(num);
 		Map<String,Object> paramMap = new HashMap<String,Object>();

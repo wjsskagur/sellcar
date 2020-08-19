@@ -24,6 +24,4 @@ public interface QaMapper {
 	public void update(QaVO qa);
 	@Delete("DELETE FROM qnaboard WHERE num=#{num}")
 	public void delete(Integer num);
-	@Insert("INSERT INTO reply (bno, rno, content, writer) VALUES (#{bno}, reply_seq.nextval, #{content], #{writer})")
-	public int insert(ReplyVO vo);
 }
