@@ -21,7 +21,6 @@ textarea.commentForm{
 			location.href='delete.do?num=${qa.num}';
 		}
 	}
-	
 </script>
 <div class="page-main-style">
 	<table class="boardView">
