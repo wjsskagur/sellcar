@@ -7,7 +7,11 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources//css/bootstrap.min.css">
-
+<style>
+	div{
+		margin-top:25px;
+	}
+</style>
 <div class="page-main-style">
 	<h2>차량후기</h2>
 	<c:if test="${count == 0}">

@@ -120,7 +120,7 @@ input#text{
             <p class="card-text">${search.car_cate2}<br>${search.car_cate3}</p>
           </div>
           <div class="card-footer">
-            <a href="cardetail.do" class="btn btn-primary">더보기</a>
+            <a href="${pageContext.request.contextPath}/main/detail.do?carp_num=${board.carp_num}" class="btn btn-primary">더보기</a>
           </div>
         </div>
       </div>
