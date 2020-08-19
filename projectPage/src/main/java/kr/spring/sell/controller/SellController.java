@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.spring.carre.domain.CarreVO;
 import kr.spring.sell.domain.SellPhotoVO;
 import kr.spring.sell.domain.SellcarVO;
 import kr.spring.sell.service.SellPhoto;
@@ -141,6 +142,21 @@ public class SellController {
 		
 		return "redirect:/main/main.do";
 		
+	}
+	//글 상세
+	@RequestMapping("/main/detail.do")
+	public ModelAndView process(@RequestParam("carp_num") int num) {
+
+		//로그표시
+		if(log.isDebugEnabled()) {
+			log.debug("<<num>> : " + num);
+		}
+
+		SellcarVO sell = sellService.selectBoard(num);
+
+
+		//뷰 이름		,속성명     , 속성값
+		return new ModelAndView("selldetail","sell", sell);
 	}
 	@RequestMapping("/sell/sellerror.do")
 	public String SellErr() {
