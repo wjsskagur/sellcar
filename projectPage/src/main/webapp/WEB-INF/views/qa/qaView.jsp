@@ -75,6 +75,7 @@ textarea.commentForm{
 	</table>
 	<!-- 댓글쓰기 영역 -->
 	<c:if test="${user_auth == 3}">
+	
 	<table class="commentView">
 		<tr>
 			<th colspan="2">댓글</th>

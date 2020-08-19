@@ -82,23 +82,23 @@ input#text{
 <form id="search" action="searchMain.do" method="get">
 <div class="page-main-style">
 	<b>마음속에 있는 바로 그 차! <br> 지금 검색해보세요!</b>  <br><br> 
-	<select	id="car_name" name="car_name">
-		<option id="" value="" selected>차량 종류 선택</option>
-		<option value="기아">기아</option>
-		<option value="현대">현대</option>
-		<option value="테스트">테스트</option>
-		<option value="스타랙스">기아</option>
-		<option value="소나타">현대</option>
-		<option value="아반떼">삼성</option>
-	</select> 
 	<select id="car_cate1" name="car_cate1">
 		<option id="" value="" selected>모델 종류 선택</option>
-		<option value="기아">기아</option>
-		<option value="현대">현대</option>
-		<option value="삼성">삼성</option>
-		<option value="테스트">테스트</option>
+		<option value="폭스바겐">폭스바겐</option>
+		<option value="kia">kia</option>
+		<option value="BMW">BMW</option>
+		<option value="HYUNDAI">HYUNDAI</option>
 		<option value="DAL">현대</option>
 		<option value="DAL">삼성</option>
+	</select> 
+	<select	id="car_name" name="car_name">
+		<option id="" value="" selected>차량 종류 선택</option>
+		<option value="폭스바겐 아티온2.0 TDI">폭스바겐 아티온2.0 TDI</option>
+		<option value="Kia 뉴스포티지 TLX">Kia 뉴스포티지 TLX</option>
+		<option value="폭스바겐 아테온 2.0 TDI 프레스티지">폭스바겐 아테온 2.0 TDI 프레스티지</option>
+		<option value="BMW E71 30d">BMW E71 30d</option>
+		<option value="HYUNDAI G330 G330">HYUNDAI G330 G330</option>
+		<option value="더뉴파사트2.0">삼성</option>
 	</select> 
     <div align="right">
     <input id="submit"type="submit" value="검색">
