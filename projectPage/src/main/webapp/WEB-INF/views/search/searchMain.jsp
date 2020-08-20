@@ -85,7 +85,7 @@ input#text{
 	<select id="car_cate1" name="car_cate1">
 		<option id="" value="" selected>모델 종류 선택</option>
 		<option value="폭스바겐">폭스바겐</option>
-		<option value="kia">kia</option>
+		<option value="Kia">kia</option>
 		<option value="BMW">BMW</option>
 		<option value="HYUNDAI">HYUNDAI</option>
 		<option value="DAL">현대</option>
@@ -94,9 +94,10 @@ input#text{
 	<select	id="car_name" name="car_name">
 		<option id="" value="" selected>차량 종류 선택</option>
 		<option value="폭스바겐 아티온2.0 TDI">폭스바겐 아티온2.0 TDI</option>
-		<option value="Kia 뉴스포티지 TLX">Kia 뉴스포티지 TLX</option>
 		<option value="폭스바겐 아테온 2.0 TDI 프레스티지">폭스바겐 아테온 2.0 TDI 프레스티지</option>
+		<option value="Kia 뉴스포티지 TLX">Kia 뉴스포티지 TLX</option>
 		<option value="BMW E71 30d">BMW E71 30d</option>
+		<option value="BMW 750 Li">BMW E71 30d</option>
 		<option value="HYUNDAI G330 G330">HYUNDAI G330 G330</option>
 		<option value="더뉴파사트2.0">삼성</option>
 	</select> 
@@ -120,7 +121,7 @@ input#text{
             <p class="card-text">${search.car_cate2}<br>${search.car_cate3}</p>
           </div>
           <div class="card-footer">
-            <a href="${pageContext.request.contextPath}/main/detail.do?carp_num=${board.carp_num}" class="btn btn-primary">더보기</a>
+            <a href="${pageContext.request.contextPath}/main/detail.do?carp_num=${search.carp_num}" class="btn btn-primary">더보기</a>
           </div>
         </div>
       </div>
